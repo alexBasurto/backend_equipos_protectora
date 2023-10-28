@@ -46,7 +46,8 @@ El objetivo del proyecto es, en trabajo colaborativo, poner en práctica las sig
 ### Base de datos MySQL
 Este es el esquema de la base de datos.
 
--- Tabla tbStaff
+```lua
+
 tbStaff = {
     idUser = "INT PRIMARY KEY",
     nombre = "VARCHAR(255)",
@@ -90,3 +91,6 @@ tbDogsCandidatesStaff = {
     FOREIGN KEY (idCandidate) REFERENCES tbCandidates(idCandidate),
     FOREIGN KEY (idUser) REFERENCES tbStaff(idUser)
 }
+
+```
+
