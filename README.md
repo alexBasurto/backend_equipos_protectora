@@ -1,12 +1,15 @@
 # PATITAS FELICES  🐕🐾
 ## Tabla de contenidos
 
-- [Backend Equipos - Refugio Perros](#backend-equipos---refugio-perros)
-    - [Proyecto por equipos Backend](#proyecto-por-equipos-Backend)
-        - [Refugio Perros (asociación)](#refugio-perros-asociación)
-        - [Protectora Perros (proyecto web)](#protectora-perros-proyecto-web)
-- [Requisitos técnicos del proyecto](#requisitos-técnicos-del-proyecto)
-- [Orientación técnica del proyecto](#orientación-técnica-del-proyecto)
+- [PATITAS FELICES  🐕🐾](#patitas-felices--)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [Backend Equipos - Refugio Perros](#backend-equipos---refugio-perros)
+    - [Proyecto por equipos Backend](#proyecto-por-equipos-backend)
+      - [Refugio Perros (asociación)](#refugio-perros-asociación)
+      - [Protectora Perros (proyecto web)](#protectora-perros-proyecto-web)
+  - [Requisitos técnicos del proyecto](#requisitos-técnicos-del-proyecto)
+  - [Orientación técnica del proyecto](#orientación-técnica-del-proyecto)
+    - [Base de datos MySQL](#base-de-datos-mysql)
 
 
 ## Backend Equipos - Refugio Perros
@@ -46,21 +49,10 @@ El objetivo del proyecto es, en trabajo colaborativo, poner en práctica las sig
 ### Base de datos MySQL
 Este es el esquema de la base de datos.
 
-```lua
-+---------------+
-| tbStaff       |-----|
-|               |     |
-+---------------+     |
-                      |
-+---------------+     |        +-----------------------+
-| tbDogs        |-----|------->| tbDogsCandidatesStaff |
-|               |     |        +-----------------------+
-+---------------+     |
-                      |
-+---------------+     |
-| tbCandidates  |-----|
-|               |
-+---------------+
-
+```mermaid
+flowchart TD
+    B[tbUsers] --> |1:n| A
+    C[tbDogs] --> |1:n| A
+    D[tbCandidates] --> |1:n| A
+    A[tbUserDogCandidate]
 ```
-
