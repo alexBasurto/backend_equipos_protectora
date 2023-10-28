@@ -47,50 +47,20 @@ El objetivo del proyecto es, en trabajo colaborativo, poner en práctica las sig
 Este es el esquema de la base de datos.
 
 ```lua
-
-tbStaff = {
-    idUser = "INT PRIMARY KEY",
-    nombre = "VARCHAR(255)",
-    apellidos = "VARCHAR(255)",
-    fecha_alta = "DATE"
-}
-
--- Tabla tbDogs
-tbDogs = {
-    idDog = "INT PRIMARY KEY",
-    nombre = "VARCHAR(255)",
-    color = "VARCHAR(50)",
-    talla = "VARCHAR(50)",
-    raza = "VARCHAR(100)",
-    foto = "VARCHAR(255)",
-    caracter = "TEXT",
-    edad = "INT",
-    observaciones = "TEXT"
-}
-
--- Tabla tbCandidates
-tbCandidates = {
-    idCandidate = "INT PRIMARY KEY",
-    nombre = "VARCHAR(255)",
-    apellidos = "VARCHAR(255)",
-    DNI = "VARCHAR(20)",
-    tipoVivienda = "VARCHAR(50)",
-    edad = "INT",
-    observaciones = "TEXT",
-    candidateApproved = "BOOLEAN"
-}
-
--- Tabla tbDogsCandidatesStaff
-tbDogsCandidatesStaff = {
-    idDog = "INT",
-    idCandidate = "INT",
-    idUser = "INT",
-    fechaAdopcion = "DATE",
-    observaciones = "TEXT",
-    FOREIGN KEY (idDog) REFERENCES tbDogs(idDog),
-    FOREIGN KEY (idCandidate) REFERENCES tbCandidates(idCandidate),
-    FOREIGN KEY (idUser) REFERENCES tbStaff(idUser)
-}
++---------------+
+| tbStaff       |-----|
+|               |     |
++---------------+     |
+                      |
++---------------+     |        +-----------------------+
+| tbDogs        |-----|------->| tbDogsCandidatesStaff |
+|               |     |        +-----------------------+
++---------------+     |
+                      |
++---------------+     |
+| tbCandidates  |-----|
+|               |
++---------------+
 
 ```
 
