@@ -1,7 +1,7 @@
-# PATITAS FELICES  🐕🐾
+# BIO CAN  🐕🐾
 ## Tabla de contenidos
 
-- [PATITAS FELICES  🐕🐾](#patitas-felices--)
+- [BIO CAN  🐕🐾](#patitas-felices--)
   - [Tabla de contenidos](#tabla-de-contenidos)
   - [Backend Equipos - Refugio Perros](#backend-equipos---refugio-perros)
     - [Proyecto por equipos Backend](#proyecto-por-equipos-backend)
@@ -15,7 +15,7 @@
 ## Backend Equipos - Refugio Perros
 ### Proyecto por equipos Backend
 #### Refugio Perros (asociación)
-Página web de la asociación PATITAS FELICES dedicada a la protección y reinserción de perros abandonados.
+Página web de la asociación BIO CAN dedicada a la protección y reinserción de perros abandonados.
 
 Primero, nos ocupamos de localizar, rescatar y salvar perros en situación de riesgo (perros perdidos, abandonados o maltratados).
 
