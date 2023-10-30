@@ -1,0 +1,21 @@
+{
+  "name": "backend_equipos_protectora",
+  "version": "1.0.0",
+  "description": "- [BIO CAN  🐕🐾](#patitas-felices--)   - [Tabla de contenidos](#tabla-de-contenidos)   - [Backend Equipos - Refugio Perros](#backend-equipos---refugio-perros)     - [Proyecto por equipos Backend](#proyecto-por-equipos-backend)       - [Refugio Perros (asociación)](#refugio-perros-asociación)       - [Protectora Perros (proyecto web)](#protectora-perros-proyecto-web)   - [Requisitos técnicos del proyecto](#requisitos-técnicos-del-proyecto)   - [Orientación técnica del proyecto](#orientación-técnica-del-proyecto)     - [Funcionalidad página web](#funcionalidad-página-web)       - [Parte pública](#parte-pública)       - [Parte autenticada](#parte-autenticada)     - [Base de datos MySQL](#base-de-datos-mysql)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2"
+  }
+}
