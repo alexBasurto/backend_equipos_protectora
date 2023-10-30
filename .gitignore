@@ -1,3 +1,6 @@
+#datos mysql
+db/data/
+
 # Logs
 logs
 *.log
