@@ -22,3 +22,4 @@ app.get("/", (req, res) => {
 
 // Inicia el servidor en el puerto 3006 y muestra un mensaje en la consola
 app.listen(3000, () => console.log("Servidor web en marcha en puerto 3000."));
+
