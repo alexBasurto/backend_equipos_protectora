@@ -20,7 +20,9 @@ app.use(express.static("public"));
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
-//
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.get("/",(req,res)=>{
     res.render("home");

@@ -20,6 +20,18 @@ const getAllCandidates = async () => {
         return [error.message, null];
     }
 };
+//busqueda por id
+
+const getCandidatesById = async (id) => {
+    try {
+        const candidate = await candidatesModel.findByPk(id);
+        return [null, candidate];
+    }
+    catch (error) {
+        return [error.message, null];
+    }
+}
+
 
 //creacion de nuevos candidatos
 
@@ -39,7 +51,7 @@ const createCandidates = async (name, lastName, dni, yearOfBirth, comments, vali
         }
 
         //creamos nuevo registro si el dni es unico
-
+        
         const [candidate, created] = await candidatesModel.findOrCreate({
             where: {
                 dni: dni
@@ -68,9 +80,23 @@ const createCandidates = async (name, lastName, dni, yearOfBirth, comments, vali
 
 //actualizacion de datos de candidatos
 
-const updateCandidates = async (id, name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing) => {
-    if (id === undefined) {
+const updateCandidates = async (idCandidate, name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing) => {
+    if (idCandidate === undefined) {
         const error = "Tienes que especificar un ID válido";
+        return [error, null];
+    }
+     // Verificar si el DNI ya está en uso por otro candidato
+     const existingCandidate = await candidatesModel.findOne({
+        where: {
+            dni: dni,
+            idCandidate: {
+                [Op.not]: idCandidate,
+              }
+        }
+    });
+
+    if (existingCandidate) {
+        const error = "El DNI ya está en uso por otro candidato.";
         return [error, null];
     }
 
@@ -80,7 +106,7 @@ const updateCandidates = async (id, name, lastName, dni, yearOfBirth, comments, 
     }
 
     try {
-        const candidate = await candidatesModel.findByPk(id);
+        const candidate = await candidatesModel.findByPk(idCandidate);
 
         if (!candidate) {
             const error = "No se ha enconrado un candidato con el ID proporcionado.";
@@ -136,12 +162,14 @@ export {
     getAllCandidates,
     createCandidates,
     updateCandidates,
-    removeCandidates
+    removeCandidates,
+    getCandidatesById
 };
 
 export default {
     getAllCandidates,
     createCandidates,
     updateCandidates,
-    removeCandidates
+    removeCandidates,
+    getCandidatesById
 };
