@@ -22,9 +22,9 @@ const getAllCandidates = async () => {
 };
 //busqueda por id
 
-const getCandidatesById = async (id) => {
+const getCandidatesById = async (idCandidate) => {
     try {
-        const candidate = await candidatesModel.findByPk(id);
+        const candidate = await candidatesModel.findByPk(idCandidate);
         return [null, candidate];
     }
     catch (error) {
@@ -92,7 +92,14 @@ const updateCandidates = async (idCandidate, name, lastName, dni, yearOfBirth, c
             idCandidate: {
                 [Op.not]: idCandidate,
               }
-        }
+        },
+        include: [
+            {
+                model: typeOfHousingModel, 
+                as: 'typeOfHousing', 
+                attributes: ['idTypeOfHousing', 'TypeOfHousing'] 
+            }
+        ]
     });
 
     if (existingCandidate) {
@@ -141,9 +148,9 @@ const updateCandidates = async (idCandidate, name, lastName, dni, yearOfBirth, c
 //borado de candidatos
 
 
-const removeCandidates = async (id) => {
+const removeCandidates = async (idCandidate) => {
     try {
-        const candidate = await candidatesModel.findByPk(id);
+        const candidate = await candidatesModel.findByPk(idCandidate);
         if (!candidate) {
             const error = "No se ha encontrado ningún candidato con ese ID.";
             return [error, null];
@@ -153,7 +160,7 @@ const removeCandidates = async (id) => {
 
         return [null, candidate];
     } catch (error) {
-        console.error(error); // Registra el error en la consola para depuración
+        console.error(error); 
         return [error.message, null];
     }
 };

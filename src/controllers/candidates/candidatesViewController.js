@@ -35,8 +35,9 @@ const update = async (req, res) => {
     const { name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing } = req.body;
 
     try {
-        const [error, candidate] = await candidatesController.updateCandidates(id, name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing);
-        
+        const [error, candidate] = await candidatesController.updateCandidates(id, name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing, {
+         
+        });
         if (error) {
             const uriError = encodeURIComponent(error);
             return res.redirect(`/candidates/${id}/edit?error=${uriError}`);
@@ -50,9 +51,19 @@ const update = async (req, res) => {
     }
 };
 
+const remove = async (req,res)=>{
+    const id = req.params.id;
+    const [error,candidate] = await candidatesController.removeCandidates(id);
+    if(error){
+        const uriError = encodeURIComponent(error);
+        return res.redirect(`/candidates?error=${uriError}`);
+    }
+    res.redirect("/candidates");
+}
 
 export default { getAllCandidatesView ,
     updateForm,
     update,
-    getCandidatesByIdView
+    getCandidatesByIdView,
+    remove
 };

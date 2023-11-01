@@ -13,6 +13,12 @@ router.post("/:id",(req,res)=>{
     candidatesViewController.update(req,res);
 });
 
+router.get("/:id/delete",(req,res)=>{
+    candidatesViewController.remove(req,res);
+});
+
+
+
 
 router.get("/:id/edit", candidatesViewController.updateForm);
 
