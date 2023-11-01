@@ -66,10 +66,3 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     candidatesModel
 
   }
-
-  export {
-
-    typeOfHousingModel,
-    candidatesModel
-
-  }

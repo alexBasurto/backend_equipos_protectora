@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  if dogs
+    table(class="dogs-table")
+      thead
+        tr
+          th Nombre
+          th Color
+          th Tamaño
+          th URL foto
+          th Comportamiento
+          th Año
+          th Comentarios
+          th ID raza
+          th Acciones
+      tbody
+        each dog in dogs
+          tr
+            td= dog.name
+            td= dog.color
+            td= dog.size
+            td= dog.photo
+            td= dog.behavior
+            td= dog.yearOfBirth
+            td= dog.comments
+            td= dog.idBreed
+            td
+              a(href='/dogs/'+dog.id+'/edit') Editar
+              |
+              a(href='/dogs/'+dog.id+'/delete') Eliminar

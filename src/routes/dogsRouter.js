@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import dogsViewController from "../controllers/dogs/dogsViewController";
+import dogsViewController from "../controllers/dogs/dogsViewController.js";
 import {isAuthenticated, isAdmin} from "../middlewares/authMiddleware.js";
 
 const router = Router();

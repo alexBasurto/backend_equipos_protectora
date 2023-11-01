@@ -11,5 +11,10 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
+const isAdmin = () => {};
+
 // Exporta el middleware de autenticación.
-export default isAuthenticated;
+export {
+    isAuthenticated,
+    isAdmin
+};

@@ -71,7 +71,7 @@ const breedModel = sequelize.define("tbBreeds", {
     },
 })
 
-export {
+export default {
     dogsModel,
     breedModel
 };
