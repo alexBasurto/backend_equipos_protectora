@@ -1,4 +1,4 @@
-import dogsModel from "../../models/dogsModel.js";
+import { dogsModel, breedModel } from "../../models/dogsModel.js";
 import {Op} from "sequelize";
 
 const getAll = async (q=null) => {
@@ -8,7 +8,7 @@ const getAll = async (q=null) => {
     }
     try {
         const dogs = await dogsModel.findAll(options);
-        retur [null, dogs];
+        return [null, dogs];
     } catch(e) {
         return [e.message, null];
     }
