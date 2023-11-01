@@ -58,7 +58,7 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     foreignKey: 'idTypeOfHousing'
   });
 
-  export default{
+  export {
 
     typeOfHousingModel,
     candidatesModel
