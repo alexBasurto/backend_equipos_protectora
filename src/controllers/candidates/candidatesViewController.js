@@ -1,6 +1,6 @@
 import candidatesController from "./candidatesController.js";
 
-const getAllCandidates = async (req, res) => {
+const getAllCandidatesView = async (req, res) => {
     const errorMessage = req.query.error;
     const [error, candidates] = await candidatesController.getAllCandidates();
     res.render("candidates/show", { error: error || errorMessage, candidates, session: req.session });
@@ -10,4 +10,4 @@ const getAllCandidates = async (req, res) => {
 
 
 
-export default { getAllCandidates };
+export default { getAllCandidatesView };
