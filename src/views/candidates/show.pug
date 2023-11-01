@@ -1,13 +1,33 @@
-extends ../layout 
+extends ../layout
 
-block content 
-    if error 
-        p(class="error", style="color:red;")= error
-    if aceituna 
-        article 
-            h1= "tipo:" + aceituna.tipo
-            p= "peso: " + aceituna.peso
-            button
-                a(href='/aceitunas/'+aceituna.aceituna_id+'/edit') Editar
-            button
-                a(href='/aceitunas/'+aceituna.aceituna_id+'/delete') Eliminar
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  if candidates
+    table(class="candidates-table")
+      thead
+        tr
+          th Nombre
+          th Apellido
+          th DNI
+          th Año de Nacimiento
+          th Comentarios
+          th Validado
+          th Ciudad
+          th ID del Tipo de Vivienda
+          th Acciones
+      tbody
+        each candidate in candidates
+          tr
+            td= candidate.name
+            td= candidate.lastName
+            td= candidate.dni
+            td= candidate.yearOfBirth
+            td= candidate.comments
+            td= candidate.validated
+            td= candidate.city
+            td= candidate.typeOfHousing.TypeOfHousing
+            td
+              a(href='/candidates/'+candidate.id+'/edit') Editar
+              |
+              a(href='/candidates/'+candidate.id+'/delete') Eliminar

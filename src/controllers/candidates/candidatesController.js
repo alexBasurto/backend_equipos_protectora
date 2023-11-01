@@ -2,13 +2,14 @@ import { candidatesModel, typeOfHousingModel } from "../../models/candidatesHous
 import { Op } from "sequelize"
 
 // busqueda de todos los candidatos
-
+//tenemos que incluir el as con el mismo valor para asociar el alias en la consulta
 const getAllCandidates = async () => {
     try {
         const candidates = await candidatesModel.findAll({
             include: [
                 {
                     model: typeOfHousingModel,
+                    as: 'typeOfHousing', 
                     attributes: ['idTypeOfHousing', 'TypeOfHousing']
                 }
             ]

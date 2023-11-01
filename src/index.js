@@ -20,12 +20,14 @@ app.use(express.static("public"));
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
+//
 
-// Respuesta a la llamada GET para que devuelva un texto de prueba.
-app.get("/", (req, res) => {
-    res.send("Hola Mundo");
+app.get("/",(req,res)=>{
+    res.render("home");
 });
 
+app.use("/",router);
+
 // Inicia el servidor en el puerto 3006 y muestra un mensaje en la consola
-app.listen(3000, () => console.log("Servidor web en marcha en puerto 3000."));
+app.listen(3001, () => console.log("Servidor web en marcha en puerto 3001."));
 

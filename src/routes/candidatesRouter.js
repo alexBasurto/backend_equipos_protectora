@@ -4,7 +4,7 @@ import candidatesViewController from "../controllers/candidates/candidatesViewCo
 const router = Router();
 
 router.get("/",(req,res)=>{
-    candidatesViewController.getAllCandidates(req,res);
+    candidatesViewController.getAllCandidatesView(req,res);
 });
 
 export default router;

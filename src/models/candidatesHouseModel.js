@@ -54,9 +54,18 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     }
   });
 
+  //creo el alias para poder  asociar el idTypeOfHousing de candidates al TypeOfHousing (nombre de cada tipo)
   candidatesModel.belongsTo(typeOfHousingModel, {
-    foreignKey: 'idTypeOfHousing'
+    foreignKey: 'idTypeOfHousing',
+    as: 'typeOfHousing'
   });
+
+  export {
+
+    typeOfHousingModel,
+    candidatesModel
+
+  }
 
   export {
 
