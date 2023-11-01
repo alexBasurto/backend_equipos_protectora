@@ -15,6 +15,12 @@ const app = express();
 // Configura el middleware para servir archivos estáticos desde el directorio "public".
 app.use(express.static("public"));
 
+//Vistas
+
+app.set('views', './src/views');
+app.set('view engine', 'pug');
+
+
 // Respuesta a la llamada GET para que devuelva un texto de prueba.
 app.get("/", (req, res) => {
     res.send("Hola Mundo");
