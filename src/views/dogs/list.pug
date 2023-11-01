@@ -14,7 +14,7 @@ block content
           th Comportamiento
           th Año
           th Comentarios
-          th ID raza
+          th Raza
           th Acciones
       tbody
         each dog in dogs
@@ -26,7 +26,7 @@ block content
             td= dog.behavior
             td= dog.yearOfBirth
             td= dog.comments
-            td= dog.idBreed
+            td= dog.breed.name
             td
               a(href='/dogs/'+dog.id+'/edit') Editar
               |

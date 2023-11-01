@@ -39,10 +39,6 @@ const dogsModel = sequelize.define("tbDogs", {
     idBreed: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
-        references: {
-            model: "tbBreeds",
-            key: "idBreed",
-        },
     },
 });
 
@@ -69,9 +65,15 @@ const breedModel = sequelize.define("tbBreeds", {
         type: DataTypes.STRING(12),
         allowNull: false,
     },
-})
+});
 
-export {
-    dogsModel,
-    breedModel
-};
+dogsModel.belongsTo(breedModel, {
+    foreignKey: "idBreed",
+    as: 'breed'
+});
+
+breedModel.hasMany(dogsModel, {
+    foreignKey: "idBreed",
+});
+
+export { dogsModel, breedModel };
