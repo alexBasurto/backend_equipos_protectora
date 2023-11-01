@@ -54,7 +54,7 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     }
   });
 
-  tbCandidates.belongsTo(tbTypeOfHousing, {
+  candidatesModel.belongsTo(typeOfHousingModel, {
     foreignKey: 'idTypeOfHousing'
   });
 
