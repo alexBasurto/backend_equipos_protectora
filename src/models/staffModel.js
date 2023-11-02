@@ -1,5 +1,7 @@
-import { DataTypes } from "sequelize";
+ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
+import  adoptionModel  from './adoptionModel.js';
+
 
 const staffModel = sequelize.define('tbStaff', {
     idStaff: {
@@ -42,8 +44,11 @@ const staffModel = sequelize.define('tbStaff', {
     timestamps: false
 });
 
-export {
+/* staffModel.hasMany(adoptionModel, {
+    foreignKey: 'idStaff',
+    as: 'dogCandidates'
+  });
+   */
 
-    staffModel
-
-  }
+  export default staffModel;
+ 

@@ -4,27 +4,32 @@ block content
     h1 Nuevo Candidato
     if error
         h2= error
-    form(action="/candidates", method="post")
-        label(for="name") Nombre
-        input(type="text", name="name", id="name", value=candidate.name)
-        label(for="lastName") Apellido
-        input(type="text", name="lastName", id="lastName", value=candidate.lastName)
-        label(for="dni") DNI
-        input(type="text", name="dni", id="dni", value=candidate.dni)
-        label(for="yearOfBirth") Año de Nacimiento
-        input(type="text", name="yearOfBirth", id="yearOfBirth", value=candidate.yearOfBirth)
-        label(for="comments") Comentarios
-        input(type="text", name="comments", id="comments", value=candidate.comments)
-        label(for="validated") Validado
-        input(type="text", name="validated", id="validated", value=candidate.validated)
-        label(for="city") Ciudad
-        input(type="text", name="city", id="city", value=candidate.city)
-        label(for="idTypeOfHousing") Tipo de Vivienda
-        select(name="idTypeOfHousing", id="idTypeOfHousing")
-            each typeOfHousing in typesOfHousing
-                option(value=typeOfHousing.idTypeOfHousing)= typeOfHousing.TypeOfHousing
-        input(type="submit", value="Crear")
-
-        
-       
-        
+    form.formulario(action="/candidates", method="post")
+        .form-group
+            label(for="name") Nombre
+            input(type="text", name="name", id="name", value=candidate.name, class="input-field")
+        .form-group
+            label(for="lastName") Apellido
+            input(type="text", name="lastName", id="lastName", value=candidate.lastName, class="input-field")
+        .form-group
+            label(for="dni") DNI
+            input(type="text", name="dni", id="dni", value=candidate.dni, class="input-field")
+        .form-group
+            label(for="yearOfBirth") Año de Nacimiento
+            input(type="text", name="yearOfBirth", id="yearOfBirth", value=candidate.yearOfBirth, class="input-field")
+        .form-group
+            label(for="comments") Comentarios
+            input(type="text", name="comments", id="comments", value=candidate.comments, class="input-field")
+        .form-group
+            label(for="validated") Validado
+            input(type="text", name="validated", id="validated", value=candidate.validated, class="input-field")
+        .form-group
+            label(for="city") Ciudad
+            input(type="text", name="city", id="city", value=candidate.city, class="input-field")
+        .form-group
+            label(for="idTypeOfHousing") Tipo de Vivienda
+            select(name="idTypeOfHousing", id="idTypeOfHousing", class="input-field")
+                each typeOfHousing in typesOfHousing
+                    option(value=typeOfHousing.idTypeOfHousing)= typeOfHousing.TypeOfHousing
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-
+//import  adoptionModel from "./adoptionModel.js";
 
 
 const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
@@ -16,7 +16,11 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     }
   });
 
-
+/*   typeOfHousingModel.hasMany(candidatesModel, {
+    foreignKey: 'idTypeOfHousing', 
+    as: 'candidates' 
+  });
+ */
   const candidatesModel = sequelize.define('tbCandidates', {
     idCandidate: {
       type: DataTypes.INTEGER,
@@ -59,6 +63,12 @@ const typeOfHousingModel = sequelize.define('tbTypeOfHousing', {
     foreignKey: 'idTypeOfHousing',
     as: 'typeOfHousing'
   });
+
+ /*  candidatesModel.hasMany(adoptionModel, {
+    foreignKey: 'idCandidate',
+    as: 'dogCandidates'
+  });
+   */
 
   export {
 

@@ -1,8 +1,10 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import { candidatesModel } from "./candidatesModel.js";
-import { dogsModel } from "./dogsModel.js";
-import { staffModel } from "./staffModel.js";
+import staffModel from "./staffModel.js";
+import { candidatesModel } from "./candidatesHouseModel.js"; 
+import { dogsModel } from "./dogsModel.js"; 
+
+
 
 const adoptionModel = sequelize.define("tbDogsCandidates", {
     idStaff: {
@@ -58,4 +60,6 @@ adoptionModel.belongsTo(candidatesModel, {
 });
 
 
-export default adoptionModel;
+
+
+export default adoptionModel; 

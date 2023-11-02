@@ -1,4 +1,5 @@
 import { candidatesModel, typeOfHousingModel } from "../../models/candidatesHouseModel.js"
+
 import { Op } from "sequelize"
 
 // busqueda de todos los candidatos
