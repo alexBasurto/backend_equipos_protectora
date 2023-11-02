@@ -5,7 +5,6 @@ import { candidatesModel } from "./candidatesHouseModel.js";
 import { dogsModel } from "./dogsModel.js"; 
 
 
-
 const adoptionModel = sequelize.define("tbDogsCandidates", {
     idStaff: {
         type: DataTypes.INTEGER.UNSIGNED,

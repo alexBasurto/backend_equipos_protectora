@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  div(class="candidates-container")
+    if adoptions
+      a(href='/adoptions/new', class="new-candidate-button") Nueva Adopción
+      table(class="candidates-table")
+        thead
+          tr
+            th Nombre del Personal
+            th Nombre del Perro
+            th Nombre del Candidato
+            th Fecha de Adopción
+            th Comentarios
+            th Acciones
+        tbody
+          each adoption in adoptions
+            tr
+              td= adoption.idStaff
+              td= adoption.idDog
+              td= adoption.idCandidate
+              td= adoption.adopDate
+              td= adoption.comments
+              td
+                a(href='/adoptions/'+adoption.idAdoption+'/edit') Editar
+                |
+                a(href='/adoptions/'+adoption.idAdoption+'/delete') Eliminar
