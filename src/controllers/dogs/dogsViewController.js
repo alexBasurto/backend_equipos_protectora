@@ -26,14 +26,22 @@ const updateForm = async (req, res) => {
     const errorMessage = req.query.error;
     const id = req.params.id;
     const [error, dog] = await dogsController.getById(id);
-    if (error) {
+    const [breedsError, breeds] = await dogsController.getAllBreeds();
+    if (error || breedsError) {
         res.redirect("/dogs");
     }
-    res.render("dogs/edit", {error:errorMessage, dog, session:req.session});
+    res.render("dogs/edit", {error:errorMessage, dog, breeds, session:req.session});
 }
 
-const update = (req, res) => {
-    // Comprobar los campos de tbDogs y escribir cuerpo fn.
+const update = async (req, res) => {
+    const id = req.params.id;
+    const { name, color, size, urlPhoto, behavior, year, comments, breed } = req.body;
+    const [error, dog] = await dogsController.update(id, name, color, size, urlPhoto, behavior, year, comments, breed);
+    if (error) {
+        const uriError = encodeURIComponent(error);
+        return res.redirect(`/dogs/${id}/edit?error=${uriError}`);
+    }
+    res.redirect("/dogs");
 }
 
 const remove = async (req, res) => {
