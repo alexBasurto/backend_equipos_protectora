@@ -1,5 +1,5 @@
-import adoptionModel from "../../models/adoptionModel.js";
-import staffModel from "../../models/staffModel.js";
+import { adoptionModel } from "../../models/adoptionModel.js";
+import { staffModel } from "../../models/staffModel.js";
 import { Op } from "sequelize"
 
 //gettodas las adopciones

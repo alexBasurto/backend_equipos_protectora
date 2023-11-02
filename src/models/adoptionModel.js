@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import staffModel from "./staffModel.js";
+import { staffModel } from "./staffModel.js";
 import { candidatesModel } from "./candidatesHouseModel.js"; 
 import { dogsModel } from "./dogsModel.js"; 
 
@@ -61,4 +61,4 @@ adoptionModel.belongsTo(candidatesModel, {
 
 
 
-export default adoptionModel; 
+export { adoptionModel }; 

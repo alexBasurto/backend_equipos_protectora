@@ -1,4 +1,5 @@
 import { dogsModel, breedModel } from "../../models/dogsModel.js";
+import { adoptionModel } from "../../models/adoptionModel.js";
 import { Op } from "sequelize";
 
 const getAll = async (q = null) => {
@@ -75,6 +76,11 @@ const remove = async (id) => {
         const dog = await dogsModel.findByPk(id);
         if (!dog) {
             const error = "No se ha encontrado ningún perro con ese ID.";
+            return [error, null];
+        }
+        const checkAdoption = await adoptionModel.count({ where: {idDog: dog.idDog} });
+        if (checkAdoption > 0) {
+            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este perro.`;
             return [error, null];
         }
         dog.destroy();

@@ -1,6 +1,6 @@
  import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import  adoptionModel  from './adoptionModel.js';
+import  { adoptionModel }  from './adoptionModel.js';
 
 
 const staffModel = sequelize.define('tbStaff', {
@@ -50,5 +50,5 @@ const staffModel = sequelize.define('tbStaff', {
   });
    */
 
-  export default staffModel;
+  export { staffModel };
  
