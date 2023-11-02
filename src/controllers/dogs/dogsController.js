@@ -22,8 +22,14 @@ const getAll = async (q = null) => {
 };
 
 const getById = async (id) => {
+    const options = {};
+    options.include = [{
+            model: breedModel,
+            as: 'breed',
+            attributes: ['idBreed', 'name']
+    }];
     try {
-        const dog = await dogsModel.findByPk(id);
+        const dog = await dogsModel.findByPk(id, options);
         return [null, dog];
     } catch (e) {
         return [e.message, null];
@@ -37,16 +43,36 @@ const create = async (/*params*/) => {
     } catch (e) {}
 };
 
-const update = async (/*params*/) => {
-    // Cuerpo fn.
-
+const update = async (id, name, color, size, photo, behavior, year, comments, breed) => {
+    if(id == undefined){
+        const error = "Tienes que especificar un ID válido";
+        return [error,null];
+    }
+    if (name === undefined || color === undefined || size === undefined || behavior === undefined || year === undefined || breed === undefined) {
+        const error = "Los campos nombre, color, tamaño, comportamiento, año nacimiento y raza son obligatorios.";
+        return [error, null];
+    }
     try {
-    } catch (e) {}
+        const dog = await dogsModel.findByPk(id);
+        dog.name = name;
+        dog.color = color;
+        dog.size = size;
+        dog.photo = photo;
+        dog.behavior = behavior;
+        dog.yearOfBirth = year;
+        dog.comments = comments;
+        dog.idBreed = breed;
+        dog.save();
+        return [null, dog];
+    } catch (e) {
+        console.log(e);
+        return [e.message, null];
+    }
 };
 
 const remove = async (id) => {
     try {
-        const dog = await dogsModel.findByPK(id);
+        const dog = await dogsModel.findByPk(id);
         if (!dog) {
             const error = "No se ha encontrado ningún perro con ese ID.";
             return [error, null];
@@ -58,10 +84,22 @@ const remove = async (id) => {
     }
 };
 
+// Breeds
+
+const getAllBreeds = async () => {
+    try {
+        const breeds = await breedModel.findAll();
+        return [null, breeds];
+    } catch (e) {
+        return [e.message, null];
+    }
+}
+
 export default {
     getAll,
     getById,
     create,
     update,
     remove,
+    getAllBreeds
 };

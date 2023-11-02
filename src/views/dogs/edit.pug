@@ -1,0 +1,35 @@
+extends ../layout
+
+block content 
+    h1 Editar Ficha Perro
+    if error 
+        h2= error
+    form(action=`/dogs/${dog.idDog}`, method="post")
+        label(for="name") Nombre:
+        input(type="text", name="name", id="name" value=dog.name)  
+        label(for="color") Color:
+        input(type="text", name="color", id="color", value=dog.color)
+        label(for="size") Tamaño:
+        input(type="text", name="size", id="size", value=dog.size)
+        label(for="uflPhoto") Foto:
+        input(type="text", name="urlPhoto", id="urlPhoto", value=dog.photo)
+        label(for="behavior") Comportamiento:
+        input(type="text", name="behavior", id="behavior", value=dog.behavior)
+        label(for="year") Año:
+        input(type="number", name="year", id="year", value=dog.yearOfBirth)
+        label(for="comments") Comentarios:
+        input(type="text", name="comments", id="comments", value=dog.comments)
+
+        label(for="breed") Raza:
+        select(name="breed", id="breed")
+            each breed in breeds
+                if dog.idBreed === breed.idBreed
+                    option(value=breed.idBreed, selected="selected")= breed.name
+                else
+                    option(value=breed.idBreed)= breed.name
+
+        input(type="submit", value="Guardar") 
+        button
+            a(href='/dogs') Cancelar
+
+
