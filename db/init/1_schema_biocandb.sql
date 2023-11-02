@@ -112,13 +112,17 @@ DROP TABLE IF EXISTS `tbStaff`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbStaff` (
   `idStaff` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(120) NOT NULL,
+  `password` varchar(120) NOT NULL,
   `name` varchar(120) NOT NULL,
   `lastName` varchar(120) NOT NULL,
+  `rol` varchar(50) NOT NULL DEFAULT 'standardUser',
   `hiringDate` date NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`idStaff`),
   UNIQUE KEY `idStaff_UNIQUE` (`idStaff`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

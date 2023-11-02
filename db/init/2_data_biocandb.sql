@@ -61,7 +61,14 @@ UNLOCK TABLES;
 
 LOCK TABLES `tbStaff` WRITE;
 /*!40000 ALTER TABLE `tbStaff` DISABLE KEYS */;
-INSERT INTO `tbStaff` VALUES (1,'Elena','Martínez','2023-10-30',1),(2,'Alejandro','García','2023-10-30',1),(3,'María','Fernández','2023-10-30',0),(4,'Carlos','López','2023-10-30',1),(5,'Laura','Rodríguez','2023-10-30',1);
+/* admin123 hash $2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i*/
+INSERT INTO tbStaff (email, password, name, lastName, rol, hiringDate, status)
+VALUES 
+  ('john.doe@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'John', 'Doe', 'standardUser', '2023-10-30', 1),
+  ('jane.smith@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Jane', 'Smith', 'standardUser', '2023-10-30', 1),
+  ('michael.johnson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Michael', 'Johnson', 'standardUser', '2023-10-30', 1),
+  ('emily.wilson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Emily', 'Wilson', 'standardUser', '2023-10-30', 1),
+  ('admin@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Admin', 'User', 'admin', '2023-10-30', 1);
 /*!40000 ALTER TABLE `tbStaff` ENABLE KEYS */;
 UNLOCK TABLES;
 
