@@ -56,4 +56,6 @@ adoptionModel.belongsTo(candidatesModel, {
     foreignKey: "idCandidate",
     as: "candidate"
 });
+
+
 export default adoptionModel;
