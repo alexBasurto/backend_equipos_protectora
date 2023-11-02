@@ -4,11 +4,13 @@ import { Op } from "sequelize";
 
 const getAll = async (q = null) => {
     const options = {};
-    options.include = [{
+    options.include = [
+        {
             model: breedModel,
-            as: 'breed',
-            attributes: ['idBreed', 'name']
-    }];
+            as: "breed",
+            attributes: ["idBreed", "name"],
+        },
+    ];
     if (q) {
         options.where = {
             nameDog: { [Op.like]: `%${q}%` },
@@ -24,11 +26,13 @@ const getAll = async (q = null) => {
 
 const getById = async (id) => {
     const options = {};
-    options.include = [{
+    options.include = [
+        {
             model: breedModel,
-            as: 'breed',
-            attributes: ['idBreed', 'name']
-    }];
+            as: "breed",
+            attributes: ["idBreed", "name"],
+        },
+    ];
     try {
         const dog = await dogsModel.findByPk(id, options);
         return [null, dog];
@@ -37,20 +41,69 @@ const getById = async (id) => {
     }
 };
 
-const create = async (/*params*/) => {
-    // Cuerpo fn.
-
+const create = async (
+    name,
+    color,
+    size,
+    photo,
+    behavior,
+    yearOfBirth,
+    comments,
+    idBreed
+) => {
+    if (
+        name === undefined ||
+        color === undefined ||
+        size === undefined ||
+        behavior === undefined ||
+        yearOfBirth === undefined ||
+        idBreed === undefined
+    ) {
+        const error = "Rellene todos los campos obligatorios.";
+        return [error, null];
+    }
     try {
-    } catch (e) {}
+        const dog = await dogsModel.create({
+            name,
+            color,
+            size,
+            photo,
+            behavior,
+            yearOfBirth,
+            comments,
+            idBreed,
+        });
+        return [null, dog];
+    } catch (e) {
+        return [e.message, null];
+    }
 };
 
-const update = async (id, name, color, size, photo, behavior, year, comments, breed) => {
-    if(id == undefined){
+const update = async (
+    id,
+    name,
+    color,
+    size,
+    photo,
+    behavior,
+    year,
+    comments,
+    breed
+) => {
+    if (id == undefined) {
         const error = "Tienes que especificar un ID válido";
-        return [error,null];
+        return [error, null];
     }
-    if (name === undefined || color === undefined || size === undefined || behavior === undefined || year === undefined || breed === undefined) {
-        const error = "Los campos nombre, color, tamaño, comportamiento, año nacimiento y raza son obligatorios.";
+    if (
+        name === undefined ||
+        color === undefined ||
+        size === undefined ||
+        behavior === undefined ||
+        year === undefined ||
+        breed === undefined
+    ) {
+        const error =
+            "Los campos nombre, color, tamaño, comportamiento, año nacimiento y raza son obligatorios.";
         return [error, null];
     }
     try {
@@ -78,7 +131,9 @@ const remove = async (id) => {
             const error = "No se ha encontrado ningún perro con ese ID.";
             return [error, null];
         }
-        const checkAdoption = await adoptionModel.count({ where: {idDog: dog.idDog} });
+        const checkAdoption = await adoptionModel.count({
+            where: { idDog: dog.idDog },
+        });
         if (checkAdoption > 0) {
             const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este perro.`;
             return [error, null];
@@ -99,7 +154,7 @@ const getAllBreeds = async () => {
     } catch (e) {
         return [e.message, null];
     }
-}
+};
 
 export default {
     getAll,
@@ -107,5 +162,5 @@ export default {
     create,
     update,
     remove,
-    getAllBreeds
+    getAllBreeds,
 };

@@ -3,31 +3,34 @@ extends ../layout
 block content
   if error
     p(class="error", style="color:red;")= error
-  if dogs
-    table(class="dogs-table")
-      thead
-        tr
-          th Nombre
-          th Color
-          th Tamaño
-          th URL foto
-          th Comportamiento
-          th Año
-          th Comentarios
-          th Raza
-          th Acciones
-      tbody
-        each dog in dogs
+  div(class="candidates-container")
+    
+    if dogs
+      a(href='/dogs/new', class="new-candidate-button") Nuevo Perro
+      table(class="candidates-table")
+        thead
           tr
-            td= dog.name
-            td= dog.color
-            td= dog.size
-            td= dog.photo
-            td= dog.behavior
-            td= dog.yearOfBirth
-            td= dog.comments
-            td= dog.breed.name
-            td
-              a(href='/dogs/'+dog.idDog+'/edit') Editar
-              |
-              a(href='/dogs/'+dog.idDog+'/delete') Eliminar
+            th Nombre
+            th Color
+            th Tamaño
+            th URL foto
+            th Comportamiento
+            th Año
+            th Comentarios
+            th Raza
+            th Acciones
+        tbody
+          each dog in dogs
+            tr
+              td= dog.name
+              td= dog.color
+              td= dog.size
+              td= dog.photo
+              td= dog.behavior
+              td= dog.yearOfBirth
+              td= dog.comments
+              td= dog.breed.name
+              td
+                a(href='/dogs/'+dog.idDog+'/edit') Editar
+                |
+                a(href='/dogs/'+dog.idDog+'/delete') Eliminar
