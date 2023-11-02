@@ -14,6 +14,7 @@ const getCandidatesByIdView = async (req,res) =>{
 
 const updateForm = async (req, res) => {
     const errorMessage = req.query.error;
+    const typesOfHousing = await candidatesController.getTypesOfHousing();
     const id = req.params.id;
 
     try {
@@ -23,7 +24,7 @@ const updateForm = async (req, res) => {
             res.redirect("/candidates"); 
         }
 
-        res.render("candidates/edit", { error: errorMessage, candidate });
+        res.render("candidates/edit", { error: errorMessage, candidate, typesOfHousing });
     } catch (error) {
         console.error(error);
         res.redirect("/candidates"); 
@@ -61,9 +62,37 @@ const remove = async (req,res)=>{
     res.redirect("/candidates");
 }
 
+const createForm = async (req, res) => {
+    const error = req.query.error;
+    const typesOfHousing = await candidatesController.getTypesOfHousing();
+    const candidate = {
+        name: "", 
+        lastName: "", 
+        dni: "", 
+        yearOfBirth: "", 
+        comments: "", 
+        validated: "", 
+        city: "", 
+        idTypeOfHousing: "", 
+       
+    };
+    res.render("candidates/new", { error, candidate, typesOfHousing });
+};
+
+const create = async (req, res) => {
+    const { name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing } = req.body;
+    const [error, candidate] = await candidatesController.createCandidates(name, lastName, dni, yearOfBirth, comments, validated, city, idTypeOfHousing);
+    if (error) {
+        const uriError = encodeURIComponent(error);
+        return res.redirect(`/candidates/new?error=${uriError}`); 
+    }
+    res.redirect("/candidates");
+}
 export default { getAllCandidatesView ,
     updateForm,
     update,
     getCandidatesByIdView,
-    remove
+    remove,
+    create,
+    createForm
 };

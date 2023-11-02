@@ -42,16 +42,7 @@ const createCandidates = async (name, lastName, dni, yearOfBirth, comments, vali
     }
 
     try {
-        //buscamos por id en la tabla de typeOfHousing
-        const typeOfHousing = await typeOfHousingModel.findByPk(idTypeOfHousing);
-        //si el id no existe retornamos error
-        if (!typeOfHousing) {
-            const error = "El idTypeOfHousing no es válido.";
-            return [error, null];
-        }
-
-        //creamos nuevo registro si el dni es unico
-        
+        // Crear un nuevo registro si el dni es único
         const [candidate, created] = await candidatesModel.findOrCreate({
             where: {
                 dni: dni
@@ -113,20 +104,26 @@ const updateCandidates = async (idCandidate, name, lastName, dni, yearOfBirth, c
     }
 
     try {
-        const candidate = await candidatesModel.findByPk(idCandidate);
-
+        const candidate = await candidatesModel.findByPk(idCandidate, {
+            include: [{
+                model: typeOfHousingModel,
+                as: 'typeOfHousing' // Asegúrate de que el alias sea correcto si lo has definido
+            }]
+        });
+    
         if (!candidate) {
-            const error = "No se ha enconrado un candidato con el ID proporcionado.";
+            const error = "No se ha encontrado un candidato con el ID proporcionado.";
             return [error, null];
         }
-
-        // MIramos si idTypeOfHousing existe en la tabla tbTypeOfHousing
-        const typeOfHousing = await typeOfHousingModel.findByPk(idTypeOfHousing);
-
+    
+        // Accede a la relación para obtener el tipo de vivienda
+        const typeOfHousing = candidate.typeOfHousing;
+    
         if (!typeOfHousing) {
             const error = "El idTypeOfHousing no es válido.";
             return [error, null];
         }
+    
 
         candidate.name = name;
         candidate.lastName = lastName;
@@ -164,13 +161,23 @@ const removeCandidates = async (idCandidate) => {
         return [error.message, null];
     }
 };
+const getTypesOfHousing = async () => {
+    try {
+        const typesOfHousing = await typeOfHousingModel.findAll();
+        return typesOfHousing;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+};
 
 export {
     getAllCandidates,
     createCandidates,
     updateCandidates,
     removeCandidates,
-    getCandidatesById
+    getCandidatesById,
+    getTypesOfHousing
 };
 
 export default {
@@ -178,5 +185,6 @@ export default {
     createCandidates,
     updateCandidates,
     removeCandidates,
-    getCandidatesById
+    getCandidatesById,
+    getTypesOfHousing
 };

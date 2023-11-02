@@ -1,10 +1,10 @@
 extends ../layout
 
 block content
-    h1 Editar Candidato
+    h1 Nuevo Candidato
     if error
         h2= error
-    form(action=`/candidates/${candidate.idCandidate}`, method="post")
+    form(action="/candidates", method="post")
         label(for="name") Nombre
         input(type="text", name="name", id="name", value=candidate.name)
         label(for="lastName") Apellido
@@ -22,9 +22,9 @@ block content
         label(for="idTypeOfHousing") Tipo de Vivienda
         select(name="idTypeOfHousing", id="idTypeOfHousing")
             each typeOfHousing in typesOfHousing
-                - if (typeOfHousing.idTypeOfHousing === candidate.idTypeOfHousing)
-                    option(value=typeOfHousing.idTypeOfHousing, selected)= typeOfHousing.TypeOfHousing
+                option(value=typeOfHousing.idTypeOfHousing)= typeOfHousing.TypeOfHousing
+        input(type="submit", value="Crear")
 
-        input(type="submit", value="Guardar")
-        button
-            a(href='/candidates') Cancelar
+        
+       
+        
