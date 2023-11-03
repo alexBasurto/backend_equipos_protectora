@@ -3,13 +3,13 @@ import candidatesController from "./candidatesController.js";
 const getAllCandidatesView = async (req, res) => {
     const errorMessage = req.query.error;
     const [error, candidates] = await candidatesController.getAllCandidates();
-    res.render("candidates/show", { error: error || errorMessage, candidates, session: req.session });
+    res.render("candidates/list", { error: error || errorMessage, candidates, session: req.session });
 }
 
 const getCandidatesByIdView = async (req,res) =>{
     const id = req.params.id;
     const [error,candidate] = await candidatesController.getCandidatesById(id);
-    res.render("candidates/show",{error,candidate,session:req.session});   
+    res.render("candidates/list",{error,candidate,session:req.session});   
 }
 
 const updateForm = async (req, res) => {

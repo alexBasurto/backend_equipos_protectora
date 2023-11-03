@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1 Login
+    if error
+        h2= error
+    form.formulario(action="/candidates", method="post")
+        .form-group
+            label(for="email") Email
+            input(type="text", name="name", id="name", value=candidate.name, class="input-field")
+        .form-group
+            label(for="password") Contraseña
+            input(type="password", name="password", id="password", class="input-field")
+        
+        .form-group
+            input(type="submit", value="send", class="btn-primary")
