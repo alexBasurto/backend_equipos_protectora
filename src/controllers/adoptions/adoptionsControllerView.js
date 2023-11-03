@@ -6,7 +6,7 @@ const getAllAdoptionsView = async (req, res) => {
     const [error, adoptions] = await adoptionsController.getAllAdoptions();
 
 
-    res.render("adoptions/list", { error: error || errorMessage, adoptions, session: req.session });
+    res.render("adoptions/show", { error: error || errorMessage, adoptions, session: req.session });
 };
 
 
