@@ -1,9 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 import { staffModel } from "./staffModel.js";
-import { candidatesModel } from "./candidatesHouseModel.js"; 
-import { dogsModel } from "./dogsModel.js"; 
-
+import { candidatesModel } from "./candidatesHouseModel.js";
+import { dogsModel } from "./dogsModel.js";
 
 const adoptionModel = sequelize.define("tbDogsCandidates", {
     idStaff: {
@@ -12,8 +11,8 @@ const adoptionModel = sequelize.define("tbDogsCandidates", {
         primaryKey: true,
         references: {
             model: staffModel,
-            key: "idStaff"
-        }
+            key: "idStaff",
+        },
     },
     idDog: {
         type: DataTypes.INTEGER.UNSIGNED,
@@ -21,8 +20,8 @@ const adoptionModel = sequelize.define("tbDogsCandidates", {
         primaryKey: true,
         references: {
             model: dogsModel,
-            key: "idDog"
-        }
+            key: "idDog",
+        },
     },
     idCandidate: {
         type: DataTypes.INTEGER.UNSIGNED,
@@ -30,35 +29,34 @@ const adoptionModel = sequelize.define("tbDogsCandidates", {
         primaryKey: true,
         references: {
             model: candidatesModel,
-            key: "idCandidate"
-        }
+            key: "idCandidate",
+        },
     },
     adopDate: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
     },
     comments: {
         type: DataTypes.STRING(200),
-        defaultValue: null
-    }
+        defaultValue: null,
+    },
 });
 
 adoptionModel.belongsTo(staffModel, {
     foreignKey: "idStaff",
-    as: "staff"
+    as: 'staff'
 });
-
 adoptionModel.belongsTo(dogsModel, {
     foreignKey: "idDog",
-    as: "dog"
+    as: 'dogs'
 });
-
 adoptionModel.belongsTo(candidatesModel, {
     foreignKey: "idCandidate",
-    as: "candidate"
+    as: 'candidates'
 });
 
+staffModel.hasMany(adoptionModel, { foreignKey: "idStaff" });
+dogsModel.hasMany(adoptionModel, { foreignKey: "idDog" });
+candidatesModel.hasMany(adoptionModel, { foreignKey: "idCandidate" });
 
-
-
-export { adoptionModel }; 
+export { adoptionModel };

@@ -9,9 +9,9 @@ block content
       table(class="candidates-table")
         thead
           tr
-            th Nombre del Personal
-            th Nombre del Perro
-            th Nombre del Candidato
+            th(colspan=2) Voluntario
+            th(colspan=2) Perro
+            th(colspan=2) Candidato
             th Fecha de Adopción
             th Comentarios
             th Acciones
@@ -19,8 +19,20 @@ block content
           each adoption in adoptions
             tr
               td= adoption.idStaff
+              if adoption.staff
+                td= adoption.staff.name
+              else
+                td
               td= adoption.idDog
+              if adoption.dogs
+                td= adoption.dogs.name
+              else
+                td
               td= adoption.idCandidate
+              if adoption.candidates
+                td= adoption.candidates.name
+              else
+                td
               td= adoption.adopDate
               td= adoption.comments
               td
