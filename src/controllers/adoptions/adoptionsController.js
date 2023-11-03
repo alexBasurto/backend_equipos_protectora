@@ -9,9 +9,9 @@ const getAllAdoptions = async () => {
         const adoptions = await adoptionModel.findAll({
             include: [
                 {
-                    model: staffModel,
-                    as: "staff",
-                    attributes: ["name"], 
+                    model: dogsModel,
+                    as: "dogs",
+                    attributes: ["idDogs", "name"]
                 }
             ]
         });

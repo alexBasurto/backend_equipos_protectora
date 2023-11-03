@@ -4,6 +4,8 @@ block content
   if error
     p(class="error", style="color:red;")= error
   div(class="candidates-container")
+    if staffMembers
+      a(href='/staff/new', class="new-candidate-button") Nuevo Miembro del Personal
       table(class="candidates-table")
         thead
           tr
@@ -14,7 +16,7 @@ block content
             th Rol
             th Fecha de Contratación
             th Estado
-            th Acciones
+            
         tbody
           each staffMember in staffMembers
             tr
@@ -25,7 +27,4 @@ block content
               td= staffMember.rol
               td= staffMember.hiringDate
               td= staffMember.status ? 'Activo' : 'Inactivo'
-              td
-                a(href='/staff/'+staffMember.idStaff+'/edit') Editar
-                |
-                a(href='/staff/'+staffMember.idStaff+'/delete') Eliminar
+             
