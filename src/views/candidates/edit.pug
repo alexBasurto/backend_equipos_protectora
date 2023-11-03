@@ -22,7 +22,10 @@ block content
             input(type="text", name="comments", id="comments", value=candidate.comments, class="input-field")
         .form-group
             label(for="validated") Validado
-            input(type="text", name="validated", id="validated", value=candidate.validated, class="input-field")
+                if candidate.validated
+                    select(name="validated", id="validated", class="input-field")
+                        option(value="si", selected=candidate.validated==="si") Sí
+                        option(value="no", selected=candidate.validated==="no") No
         .form-group
             label(for="city") Ciudad
             input(type="text", name="city", id="city", value=candidate.city, class="input-field")
