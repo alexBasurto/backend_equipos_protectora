@@ -1,5 +1,5 @@
 import { Router } from "express";
-import adoptionsControllerView from "../controllers/adoptions/adoptionsControllerView.js";
+import adoptionsViewController from "../controllers/adoptions/adoptionsViewController.js";
 
 const router = Router(); /* 
 router.get("/new", candidatesViewController.createForm);
@@ -24,7 +24,7 @@ router.get("/:id",(req,res)=>{
 }); */
 
 router.get("/",(req,res)=>{
-    adoptionsControllerView.getAllAdoptionsView(req,res);
+    adoptionsViewController.getAllAdoptionsView(req,res);
 });
 
 
