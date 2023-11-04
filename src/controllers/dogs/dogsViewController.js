@@ -27,8 +27,11 @@ const createForm = async (req, res) => {
 };
 
 const create = async (req, res) => {
-    const { name, color, size, photo, behavior, yearOfBirth, comments, idBreed } =
+    const { name, color, size, behavior, yearOfBirth, comments, idBreed } =
         req.body;
+     // Obtenemos el nombre del archivo de la solicitud
+     const photo = req.file.filename;
+   
     const [error, dog] = await dogsController.create(
         name,
         color,

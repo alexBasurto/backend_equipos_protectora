@@ -2,6 +2,7 @@ import { dogsModel, breedModel } from "../../models/dogsModel.js";
 import { adoptionModel } from "../../models/adoptionModel.js";
 import { Op } from "sequelize";
 
+
 const getAll = async (q = null) => {
     const options = {};
     options.include = [

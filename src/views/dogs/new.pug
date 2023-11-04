@@ -4,7 +4,7 @@ block content
     h1 Nuevo Perro
     if error
         h2= error
-    form.formulario(action="/dogs", method="post")
+    form.formulario(action="/dogs", method="post", enctype="multipart/form-data") 
         .form-group
             label(for="name") Nombre*
             input(type="text", name="name", id="name", class="input-field")
@@ -15,8 +15,9 @@ block content
             label(for="size") Tamaño*
             input(type="text", name="size", id="size", class="input-field")
         .form-group
-            label(for="photo") URL Foto
-            input(type="text", name="photo", id="photo", class="input-field")
+            label(for="fotoSubir") Foto
+            input(type="file", name="fotoSubir", id="fotoSubir", class="input-field")
+
         .form-group
             label(for="behavior") Comportamiento*
             input(type="text", name="behavior", id="behavior", class="input-field")
@@ -28,7 +29,7 @@ block content
             textarea(type="text", name="comments", id="comments", class="input-field") 
         .form-group
             label(for="idBreed") Raza*:
-            select(name="idBreed", id="idBreed" class="input-field")
+            select(name="idBreed", id="idBreed", class="input-field")
                 each breed in breeds
                     option(value=breed.idBreed)= breed.name
         .form-group

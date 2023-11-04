@@ -6,6 +6,7 @@ import session from "express-session";
 // Importa el módulo de enrutador definido en "router.js".
 import router from "./routes/router.js";
 
+
 // Carga las variables de entorno desde un archivo ".env".
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 
 // Configura el middleware para servir archivos estáticos desde el directorio "public".
 app.use(express.static("public"));
+
 
 //Vistas
 
