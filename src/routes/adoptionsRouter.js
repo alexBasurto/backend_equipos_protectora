@@ -1,14 +1,14 @@
 import { Router } from "express";
 import adoptionsViewController from "../controllers/adoptions/adoptionsViewController.js";
 
-const router = Router(); /* 
-router.get("/new", candidatesViewController.createForm);
+const router = Router(); 
+router.get("/new", adoptionsViewController.createForm);
 
 router.post("/",(req,res)=>{
-    candidatesViewController.create(req,res);
+    adoptionsViewController.create(req,res);
 });
 
-
+/* 
 router.get("/:id/edit", candidatesViewController.updateForm);
 
 router.get("/:id/delete",(req,res)=>{

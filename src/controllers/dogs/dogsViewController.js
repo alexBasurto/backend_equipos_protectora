@@ -1,5 +1,5 @@
 import dogsController from "./dogsController.js";
-
+import fs from 'fs';
 const getAll = async (req, res) => {
     const errorMessage = req.query.error;
     const q = req.query.q;
@@ -89,8 +89,22 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
     const id = req.params.id;
-    const [error, dog] = await dogsController.remove(id);
+    const [error, dog] = await dogsController.getById(id);
     if (error) {
+        // Maneja el error
+        return res.redirect("/dogs?error=" + encodeURIComponent(error));
+    }
+
+    // Obtén la ruta del archivo de la foto
+    const photoPath = 'public/images/dogs/' + dog.photo;
+
+    // Elimina el archivo de la foto si existe
+    if (fs.existsSync(photoPath)) {
+        fs.unlinkSync(photoPath);
+    }
+
+    const [deleteError, deletedDog] = await dogsController.remove(id);
+    if (deleteError) {
         const uriError = encodeURIComponent(error);
         return res.redirect(`/dogs?error=${uriError}`);
     }

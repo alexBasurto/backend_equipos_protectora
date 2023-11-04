@@ -9,7 +9,45 @@ const getAllAdoptionsView = async (req, res) => {
     res.render("adoptions/show", { error: error || errorMessage, adoptions, session: req.session });
 };
 
+const createForm = async (req, res) => {
+    const error = req.query.error;
 
-export default { getAllAdoptionsView ,
-    
+    try {
+        const { availableDogs, availableCandidates } = await getAvailableDogsAndCandidates();
+       
+        // Renderizar la página con los datos obtenidos
+        res.render("adoptions/new", { error, availableDogs, availableCandidates, adoption });
+    } catch (error) {
+        console.error(error);
+        // Manejar el error adecuadamente
+        res.status(500).send("Error interno del servidor");
+    }
 };
+
+const create = async (req, res) => {
+    const { idStaff,
+        idDog,
+        idCandidate,
+        adopDate,
+        comments } = req.body;
+
+    if (error) {
+        const uriError = encodeURIComponent(error);
+        return res.redirect(`/adoptions/new?error=${uriError}`);
+    }
+    res.redirect("/adoptions");
+}
+
+export default {
+    getAllAdoptionsView,
+    createForm,
+    create,
+   
+
+};
+
+export {
+    getAllAdoptionsView,
+    createForm,
+    create,
+}
