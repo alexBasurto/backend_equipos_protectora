@@ -34,7 +34,8 @@ block content
               td= dog.yearOfBirth
               td= dog.comments
               td= dog.breed.name
-              td
-                a(href='/dogs/'+dog.idDog+'/edit') Editar
-                |
-                a(href='/dogs/'+dog.idDog+'/delete') Eliminar
+              td.actionButtons
+                a(href='/dogs/'+dog.idDog+'/edit')
+                  img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                a(href='/dogs/'+dog.idDog+'/delete')
+                  img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')

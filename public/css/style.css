@@ -104,10 +104,24 @@ img.dogPhotoMini {
 }
 
 td.dogPhotoMiniContainer {
-  padding: 5px;
+  /* padding: 5px; */
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Estilos botones editar y borrar perro */
+td.actionButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+img.actionIcon {
+  width: 30px;
 }
 
 /* Estilos para dispositivos con ancho de pantalla de hasta 768px (tablets y teléfonos) */
