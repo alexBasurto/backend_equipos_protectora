@@ -13,7 +13,7 @@ block content
             th Nombre
             th Color
             th Tamaño
-            th URL foto
+            th Foto
             th Comportamiento
             th Año
             th Comentarios
@@ -25,7 +25,11 @@ block content
               td= dog.name
               td= dog.color
               td= dog.size
-              td= dog.photo
+              td.dogPhotoMiniContainer
+                if dog.photo != null
+                  img(class="dogPhotoMini", src=dog.photo, alt="Foto del perro")
+                else
+                  img(class="dogPhotoMini", src="/images/dogs/nophoto.png", alt="Foto del perro")
               td= dog.behavior
               td= dog.yearOfBirth
               td= dog.comments

@@ -91,7 +91,25 @@ a:hover {
   .candidates-table td:last-child a:hover {
     text-decoration: underline;
   }
+
+/* Estilos para fotos en nuevo perro y editar perro */
   
+img#dogPhoto {
+  height: 250px;
+}
+
+img.dogPhotoMini {
+  height: 50px;
+  margin: 0;
+}
+
+td.dogPhotoMiniContainer {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Estilos para dispositivos con ancho de pantalla de hasta 768px (tablets y teléfonos) */
 @media (max-width: 768px) {
     .candidates-table th,

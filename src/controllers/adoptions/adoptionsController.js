@@ -27,7 +27,7 @@ const getAllAdoptions = async () => {
             model: candidatesModel,
             as: "candidates",
             // required: true,
-            attributes: ["idCandidate", "name"],
+            attributes: ["idCandidate", "name", "lastName"],
         },
     ];
     try {
