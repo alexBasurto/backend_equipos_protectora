@@ -3,9 +3,9 @@ import { staffModel } from "../../models/staffModel.js";
 import { dogsModel } from "../../models/dogsModel.js";
 import { candidatesModel } from "../../models/candidatesHouseModel.js";
 import sequelize from '../../config/sequelize.js';
+import { Op } from "sequelize"
 
-
-const logs= sequelize.options.logging = console.log;
+const logs = sequelize.options.logging = console.log;
 //gettodas las adopciones
 
 const getAllAdoptions = async () => {
@@ -41,23 +41,18 @@ const getAllAdoptions = async () => {
 
 const getAvailableDogsAndCandidates = async () => {
     try {
-        
+        // Obtener los idDog que no están en el modelo adoptionModel
         const availableDogs = await dogsModel.findAll({
-            where: {
-                idDog: {
-                    [sequelize.Op.notIn]: sequelize.literal('(SELECT idDog FROM tbDogsCandidates)'),
-                }
-            }
+            where: sequelize.literal(
+                'idDog NOT IN (SELECT idDog FROM tbDogsCandidates)'
+            )
         });
 
-        
+        // Obtener los idCandidate que no están en el modelo adoptionModel y tienen validated = "Si"
         const availableCandidates = await candidatesModel.findAll({
-            where: {
-                idCandidate: {
-                    [sequelize.Op.notIn]: sequelize.literal('(SELECT idCandidate FROM tbDogsCandidates WHERE idCandidate IS NOT NULL)'),
-                },
-                validated: "Si"
-            }
+            where: sequelize.literal(
+                'idCandidate NOT IN (SELECT idCandidate FROM tbDogsCandidates WHERE idCandidate IS NOT NULL) AND validated = "Si"'
+            )
         });
 
         return { availableDogs, availableCandidates };

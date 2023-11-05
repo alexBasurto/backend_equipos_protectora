@@ -7,7 +7,8 @@ block content
     form.formulario(action="/adoptions", method="post")
         .form-group
             label(for="idStaff") ID del Personal
-            input(type="text", name="idStaff", id="idStaff", value=adoption.idStaff, class="input-field")
+            input(type="text", name="idStaff", id="idStaff", value=(adoption && adoption.idStaff) || "", class="input-field")
+
         .form-group
             label(for="idDog") Perro
             select(name="idDog", id="idDog", class="input-field")
