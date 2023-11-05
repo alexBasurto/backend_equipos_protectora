@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 Nueva Adopción
+    h1.title Nueva Adopción
     if error
         h2= error
     form.formulario(action="/adoptions", method="post")

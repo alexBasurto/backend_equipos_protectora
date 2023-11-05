@@ -12,7 +12,7 @@ const getAllAdoptionsView = async (req, res) => {
 const createForm = async (req, res) => {
     const error = req.query.error;
     const adoption = {
-        idStaff: 1,
+        idStaff: "",
         idDog: "",
         idCandidate: "",
         adopDate: "",

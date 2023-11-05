@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 Nuevo Candidato
+    h1.title Nuevo Candidato
     if error
         h2= error
     form.formulario(action="/candidates", method="post")

@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1.editar-candidato Editar Candidato
+    h1.title Editar Candidato
     if error
         h2= error
     form.formulario(action=`/candidates/${candidate.idCandidate}`, method="post")

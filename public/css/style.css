@@ -1,8 +1,37 @@
 body{
-    background-color: #fabada;
+    background-color: #f5f5f5;
 }
+/* nav {
+    background-color: #f5f5f5;
+} */
+/* Estilo para la barra de navegación */
 nav {
-    background-color: #fabada;
+  background-color: #ddd;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Estilo para el bloque de contenido */
+.block-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilo para los enlaces */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 
@@ -13,12 +42,18 @@ nav {
     text-align: center;
     margin-bottom: 20px;
   }
-  
+  .title {
+    color: #333; 
+    font-size: 28px; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
   .new-candidate-button {
-    background-color: #f2f2f2;
+    background-color: #ddd;
     color: black;
     padding: 10px 20px;
     text-decoration: none;
+    margin-top: 20px;
     margin-bottom: 20px;
     display: inline-block;
     border-radius: 5px;
@@ -33,18 +68,18 @@ nav {
   
   .candidates-table th,
   .candidates-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #888;
     padding: 10px;
     text-align: left;
   }
   
   .candidates-table th {
-    background-color: #f2f2f2;
+    background-color: #ddd;
     text-align: center;
   }
   
   .candidates-table tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #e0e0e0;
   }
   
   .candidates-table td:last-child a {
@@ -119,11 +154,18 @@ nav {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-right: 10px;
 }
 
+
+.btn-secondary:last-child {
+  margin-right: 0; 
+}
 .btn-primary {
   background-color: #4caf50;
   color: white;
+ 
 }
 
 .btn-secondary {
@@ -168,4 +210,40 @@ nav {
   .btn-secondary {
       padding: 8px 12px;
   }
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+.info-card {
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  
+  margin: 0 auto; 
+  max-width: 600px; 
+}
+
+
+
+/* Estilos adicionales para la información de la protectora */
+.info-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el mapa (ajusta según el servicio de mapas que uses) */
+.map-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
