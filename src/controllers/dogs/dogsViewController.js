@@ -98,7 +98,7 @@ const remove = async (req, res) => {
     }
 
     // Obtén la ruta del archivo de la foto
-    const photoPath = "/public" + dog.photo;
+    const photoPath = "public" + dog.photo;
     console.log(photoPath);
     // Elimina el archivo de la foto si existe
     if (fs.existsSync(photoPath)) {
