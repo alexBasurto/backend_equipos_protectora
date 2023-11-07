@@ -71,6 +71,7 @@ const update = async (req, res) => {
     const id = req.params.id;
     const { name, color, size, urlPhoto, behavior, year, comments, breed } =
         req.body;
+    console.log("PASO 1 " + id,name,color,size,urlPhoto,behavior,year,comments,breed);
     const [error, dog] = await dogsController.update(
         id,
         name,
