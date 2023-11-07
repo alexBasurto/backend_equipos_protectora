@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1.title Adopta uno de estos perros
+
+  if error
+    p.error(style="color:red;")= error
+
+  #contenedor-tarjetas
+    each dog in dogs
+      .tarjeta
+        .foto 
+          img(src=dog.photo || "/images/dogs/nophoto.png", alt="Foto del perro")
+          | #{dog.behavior}
+        h2 #{dog.name}
+        p Color: #{dog.color}
+        p Tamaño: #{dog.size}
+        p Comportamiento: #{dog.behavior}
+        p Edad: #{2023 - dog.yearOfBirth} años
+        p #{dog.comments}

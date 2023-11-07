@@ -41,7 +41,38 @@ UNLOCK TABLES;
 
 LOCK TABLES `tbDogs` WRITE;
 /*!40000 ALTER TABLE `tbDogs` DISABLE KEYS */;
-INSERT INTO `tbDogs` VALUES (1,'Max','Marrón','Mediano','perro1.jpg','Amigable','2017','Juguetón y enérgico',1),(2,'Bella','Blanco','Pequeño','perro2.jpg','Calmado','2019','Le encanta acurrucarse',2),(3,'Charlie','Negro','Grande','perro3.jpg','Enérgico','2018','Necesita ejercicio regular',3),(4,'Lucy','Marrón','Mediano','perro4.jpg','Leal','2016','Genial con los niños',4),(5,'Cooper','Dorado','Grande','perro5.jpg','Juguetón','2017','Le encantan las actividades al aire libre',5),(6,'Luna','Gris','Mediano','perro6.jpg','Dócil','2019','Se lleva bien con otras mascotas',6),(7,'Oliver','Negro y Blanco','Pequeño','perro7.jpg','Inteligente','2020','Aprende rápidamente',7),(8,'Mia','Marrón','Mediano','perro8.jpg','Animado','2018','Necesita estimulación mental',8),(9,'Bailey','Dorado','Grande','perro9.jpg','Cariñoso','2017','Disfruta de actividades acuáticas',9),(10,'Lola','Blanco','Pequeño','perro10.jpg','Curioso','2019','Le encanta explorar nuevos lugares',10),(11,'Maximus','Negro','Mediano','perro11.jpg','Ansioso por complacer','2016','Responde bien al entrenamiento',11),(12,'Zoe','Marrón','Grande','perro12.jpg','Dócil','2018','Adorable compañía familiar',12),(13,'Coco','Blanco y Negro','Pequeño','perro13.jpg','Divertido','2020','Le gusta jugar con juguetes',13),(14,'Lucky','Marrón','Mediano','perro14.jpg','Leal','2017','Le gusta correr en el parque',14),(15,'Milo','Gris','Pequeño','perro15.jpg','Cauteloso','2019','Prefiere espacios tranquilos',15),(16,'Oscar','Negro','Grande','perro16.jpg','Juguetón','2018','Le encanta jugar a buscar',16),(17,'Maya','Dorado','Mediano','perro17.jpg','Inteligente','2017','Aprende trucos rápidamente',17),(18,'Rocky','Blanco','Grande','perro18.jpg','Energético','2016','Le gusta nadar',18),(19,'Lola','Marrón','Mediano','perro19.jpg','Carácter fuerte','2018','Se lleva bien con otros perros',19),(20,'Simba','Dorado','Grande','perro20.jpg','Leal','2017','Le encanta jugar al aire libre',20),(21,'Toby','Negro y Blanco','Pequeño','perro21.jpg','Amigable','2019','Adora los mimos',21),(22,'Buddy','Marrón','Mediano','perro22.jpg','Energético','2018','Le gusta correr y jugar',22),(23,'Bailey','Blanco','Grande','perro23.jpg','Inteligente','2017','Le encanta resolver rompecabezas',23),(24,'Molly','Negro','Pequeño','perro24.jpg','Cariñosa','2019','Le gusta dormir en la cama',24),(25,'Cody','Marrón','Mediano','perro25.jpg','Leal','2018','Es un gran compañero de juego',25),(26,'Riley','Dorado','Grande','perro26.jpg','Curioso','2017','Explora el mundo con entusiasmo',26),(27,'Rosie','Negro y Blanco','Pequeño','perro27.jpg','Alegre','2019','Le encanta jugar a la pelota',27),(28,'Leo','Marrón','Mediano','perro28.jpg','Amigable','2018','Le gusta hacer nuevos amigos',28),(29,'Ziggy','Gris','Grande','perro29.jpg','Inteligente','2017','Aprende trucos increíbles',29),(30,'Luna','Blanco','Pequeño','perro30.jpg','Dócil','2019','Le gusta acurrucarse en el sofá',30);
+INSERT INTO `tbDogs` VALUES
+(1,'Max','Marrón','Mediano','/images/dogs/perro1.jpg','Amigable','2017','Juguetón y enérgico',1),
+(2,'Bella','Blanco','Pequeño','/images/dogs/perro2.jpg','Calmado','2019','Le encanta acurrucarse',2),
+(3,'Charlie','Negro','Grande','/images/dogs/perro3.jpg','Enérgico','2018','Necesita ejercicio regular',3),
+(4,'Lucy','Marrón','Mediano','/images/dogs/perro4.jpg','Leal','2016','Genial con los niños',4),
+(5,'Cooper','Dorado','Grande','/images/dogs/perro5.jpg','Juguetón','2017','Le encantan las actividades al aire libre',5),
+(6,'Luna','Gris','Mediano','/images/dogs/perro6.jpg','Dócil','2019','Se lleva bien con otras mascotas',6),
+(7,'Oliver','Negro y Blanco','Pequeño','/images/dogs/perro7.jpg','Inteligente','2020','Aprende rápidamente',7),
+(8,'Mia','Marrón','Mediano','/images/dogs/perro8.jpg','Animado','2018','Necesita estimulación mental',8),
+(9,'Bailey','Dorado','Grande','/images/dogs/perro9.jpg','Cariñoso','2017','Disfruta de actividades acuáticas',9),
+(10,'Lola','Blanco','Pequeño','/images/dogs/perro10.jpg','Curioso','2019','Le encanta explorar nuevos lugares',10),
+(11,'Maximus','Negro','Mediano','/images/dogs/perro11.jpg','Ansioso por complacer','2016','Responde bien al entrenamiento',11),
+(12,'Zoe','Marrón','Grande','/images/dogs/perro12.jpg','Dócil','2018','Adorable compañía familiar',12),
+(13,'Coco','Blanco y Negro','Pequeño','/images/dogs/perro13.jpg','Divertido','2020','Le gusta jugar con juguetes',13),
+(14,'Lucky','Marrón','Mediano','/images/dogs/perro14.jpg','Leal','2017','Le gusta correr en el parque',14),
+(15,'Milo','Gris','Pequeño','/images/dogs/perro15.jpg','Cauteloso','2019','Prefiere espacios tranquilos',15),
+(16,'Oscar','Negro','Grande','/images/dogs/perro16.jpg','Juguetón','2018','Le encanta jugar a buscar',16),
+(17,'Maya','Dorado','Mediano','/images/dogs/perro17.jpg','Inteligente','2017','Aprende trucos rápidamente',17),
+(18,'Rocky','Blanco','Grande','/images/dogs/perro18.jpg','Energético','2016','Le gusta nadar',18),
+(19,'Lola','Marrón','Mediano','/images/dogs/perro19.jpg','Carácter fuerte','2018','Se lleva bien con otros perros',19),
+(20,'Simba','Dorado','Grande','/images/dogs/perro20.jpg','Leal','2017','Le encanta jugar al aire libre',20),
+(21,'Toby','Negro y Blanco','Pequeño','/images/dogs/perro21.jpg','Amigable','2019','Adora los mimos',21),
+(22,'Buddy','Marrón','Mediano','/images/dogs/perro22.jpg','Energético','2018','Le gusta correr y jugar',22),
+(23,'Bailey','Blanco','Grande','/images/dogs/perro23.jpg','Inteligente','2017','Le encanta resolver rompecabezas',23),
+(24,'Molly','Negro','Pequeño','/images/dogs/perro24.jpg','Cariñosa','2019','Le gusta dormir en la cama',24),
+(25,'Cody','Marrón','Mediano','/images/dogs/perro25.jpg','Leal','2018','Es un gran compañero de juego',25),
+(26,'Riley','Dorado','Grande','/images/dogs/perro26.jpg','Curioso','2017','Explora el mundo con entusiasmo',26),
+(27,'Rosie','Negro y Blanco','Pequeño','/images/dogs/perro27.jpg','Alegre','2019','Le encanta jugar a la pelota',27),
+(28,'Leo','Marrón','Mediano','/images/dogs/perro28.jpg','Amigable','2018','Le gusta hacer nuevos amigos',28),
+(29,'Ziggy','Gris','Grande','/images/dogs/perro29.jpg','Inteligente','2017','Aprende trucos increíbles',29),
+(30,'Luna','Blanco','Pequeño','/images/dogs/perro30.jpg','Dócil','2019','Le gusta acurrucarse en el sofá',30);
+
 /*!40000 ALTER TABLE `tbDogs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,11 +95,11 @@ LOCK TABLES `tbStaff` WRITE;
 /* admin123 hash $2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i*/
 INSERT INTO tbStaff
 VALUES 
-  (1, 'john.doe@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'John', 'Doe', 'standardUser', '2023-10-30', 1),
-  (2, 'jane.smith@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Jane', 'Smith', 'standardUser', '2023-10-30', 1),
-  (3, 'michael.johnson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Michael', 'Johnson', 'standardUser', '2023-10-30', 1),
-  (4, 'emily.wilson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Emily', 'Wilson', 'standardUser', '2023-10-30', 1),
-  (5, 'admin@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Admin', 'User', 'admin', '2023-10-30', 1);
+  (1, 'john.doe@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'John', 'Doe', 'standardUser', '2023-10-30', 1),
+  (2, 'jane.smith@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Jane', 'Smith', 'standardUser', '2023-10-30', 1),
+  (3, 'michael.johnson@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Michael', 'Johnson', 'standardUser', '2023-10-30', 1),
+  (4, 'emily.wilson@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Emily', 'Wilson', 'standardUser', '2023-10-30', 1),
+  (5, 'admin@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Admin', 'User', 'admin', '2023-10-30', 1);
 /*!40000 ALTER TABLE `tbStaff` ENABLE KEYS */;
 UNLOCK TABLES;
 

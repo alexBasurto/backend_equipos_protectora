@@ -13,9 +13,19 @@ dotenv.config();
 // Crea una instancia de ExpressJS
 const app = express();
 
-// Configura el middleware para servir archivos estáticos desde el directorio "public".
-app.use(express.static("public"));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave:false,
+    saveUninitialized:false,
+    cookie: {
+        secure:false,
+        maxAge: 1000 * 60 * 20
+    }
+}))
 
+// Configura el middleware para servir archivos estáticos desde el directorio "public".
+
+app.use(express.static("public"));
 
 //Vistas
 

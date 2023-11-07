@@ -1,5 +1,5 @@
 import dogsController from "./dogsController.js";
-import fs from 'fs';
+import fs from "fs";
 const getAll = async (req, res) => {
     const errorMessage = req.query.error;
     const q = req.query.q;
@@ -29,9 +29,11 @@ const createForm = async (req, res) => {
 const create = async (req, res) => {
     const { name, color, size, behavior, yearOfBirth, comments, idBreed } =
         req.body;
-     // Obtenemos el nombre del archivo de la solicitud
-     const photo = req.file.filename;
-   
+    // Obtenemos el nombre del archivo de la solicitud
+    let photo = null;
+    if (req.file) {
+        photo = "/images/dogs/" + req.file.filename;
+    }
     const [error, dog] = await dogsController.create(
         name,
         color,
@@ -95,18 +97,27 @@ const remove = async (req, res) => {
         return res.redirect("/dogs?error=" + encodeURIComponent(error));
     }
 
-    // Obtén la ruta del archivo de la foto
-    const photoPath = 'public/images/dogs/' + dog.photo;
-
-    // Elimina el archivo de la foto si existe
-    if (fs.existsSync(photoPath)) {
-        fs.unlinkSync(photoPath);
-    }
+    
 
     const [deleteError, deletedDog] = await dogsController.remove(id);
     if (deleteError) {
         const uriError = encodeURIComponent(error);
         return res.redirect(`/dogs?error=${uriError}`);
+    } else {
+        // Obtén la ruta del archivo de la foto
+    const photoPath = "public" + dog.photo;
+    // Elimina el archivo de la foto si existe
+    if (fs.existsSync(photoPath)) {
+        fs.unlinkSync(photoPath, (err) => {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("File is deleted.");
+            }
+        });
+    } else {
+        console.log("File doesn't exist.")
+    }
     }
     res.redirect("/dogs");
 };
