@@ -1,6 +1,7 @@
  import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import  { adoptionModel }  from './adoptionModel.js';
+
+//import  { adoptionModel }  from './adoptionModel.js';
 
 const staffModel = sequelize.define('tbStaff', {
     idStaff: {
@@ -38,13 +39,20 @@ const staffModel = sequelize.define('tbStaff', {
         type: DataTypes.BOOLEAN,
         allowNull: false
     }
-}, {
+}, 
+{
     tableName: 'tbStaff',
     timestamps: false
 });
-staffModel.hasMany(adoptionModel, {
-    foreignKey: 'idStaff',
-    as: 'dogCandidates'
-  });
+
+/*
+adoptionModel.belongsTo(staffModel, {
+    foreignKey: "idStaff",
+    as: 'staff'
+});
+
+staffModel.hasMany(adoptionModel, { foreignKey: "idStaff" });
+
+*/
 
   export { staffModel } ;

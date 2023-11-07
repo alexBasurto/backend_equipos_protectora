@@ -6,6 +6,7 @@ const getAll = async (req, res) => {
     const [error, staff] = await staffController.getAll(q);
     res.render("staff/list", {
         error: error || errorMessage,
+     
         staff,
         session: req.session,
     });

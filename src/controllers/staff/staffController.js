@@ -7,13 +7,7 @@ import { Op } from "sequelize";
 
 const getAll = async (q = null) => {
     const options = {};
-    options.include = [
-        {
-            model: staffModel,
-            as: "staff",
-            attributes: ["idStaff", "name", "lastName"],
-        },
-    ];
+ 
     if (q) {
         options.where = {
             name: { [Op.like]: `%${q}%` },
@@ -21,6 +15,11 @@ const getAll = async (q = null) => {
     }
     try {
         const staff = await staffModel.findAll(options);
+        
+        /*if(staff.password)
+        {
+            continue ;
+        }*/
         return [null, staff];
     } catch (e) {
         return [e.message, null];
