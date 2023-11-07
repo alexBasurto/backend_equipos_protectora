@@ -97,9 +97,15 @@ const remove = async (req, res) => {
         return res.redirect("/dogs?error=" + encodeURIComponent(error));
     }
 
-    // Obtén la ruta del archivo de la foto
+    
+
+    const [deleteError, deletedDog] = await dogsController.remove(id);
+    if (deleteError) {
+        const uriError = encodeURIComponent(error);
+        return res.redirect(`/dogs?error=${uriError}`);
+    } else {
+        // Obtén la ruta del archivo de la foto
     const photoPath = "public" + dog.photo;
-    console.log(photoPath);
     // Elimina el archivo de la foto si existe
     if (fs.existsSync(photoPath)) {
         fs.unlinkSync(photoPath, (err) => {
@@ -112,11 +118,6 @@ const remove = async (req, res) => {
     } else {
         console.log("File doesn't exist.")
     }
-
-    const [deleteError, deletedDog] = await dogsController.remove(id);
-    if (deleteError) {
-        const uriError = encodeURIComponent(error);
-        return res.redirect(`/dogs?error=${uriError}`);
     }
     res.redirect("/dogs");
 };

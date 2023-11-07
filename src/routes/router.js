@@ -1,8 +1,9 @@
 // Importa el módulo "Router" desde "express" para definir rutas.
 import { Router } from "express";
-import candidatesRouter from "./candidatesRouter.js"
+import candidatesRouter from "./candidatesRouter.js";
 import dogsRouter from "./dogsRouter.js";
-import adoptionsRouter from "./adoptionsRouter.js"
+import adoptionsRouter from "./adoptionsRouter.js";
+import authRouter from "./authRouter.js";
 
 
 // Crea una instancia de Router para definir rutas.
@@ -19,6 +20,10 @@ router.use("/dogs",dogsRouter);
 //Creamos ruta para adopciones
 
 router.use("/adoptions",adoptionsRouter);
+
+//Creamos ruta para login
+
+router.use("/",authRouter);
 
 
 
