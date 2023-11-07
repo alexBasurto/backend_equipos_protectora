@@ -3,6 +3,7 @@ import { Router } from "express";
 import candidatesRouter from "./candidatesRouter.js"
 import dogsRouter from "./dogsRouter.js";
 import adoptionsRouter from "./adoptionsRouter.js"
+import publicDogsRouter from "./publicDogsRouter.js"
 
 
 // Crea una instancia de Router para definir rutas.
@@ -19,6 +20,10 @@ router.use("/dogs",dogsRouter);
 //Creamos ruta para adopciones
 
 router.use("/adoptions",adoptionsRouter);
+
+//Creamos ruta para PublicDogs
+
+router.use("/publicdogs",publicDogsRouter)
 
 
 
