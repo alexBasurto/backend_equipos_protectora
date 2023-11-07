@@ -15,16 +15,16 @@ const getAll = async (q = null) => {
     }
     try {
         const staff = await staffModel.findAll(options);
+          
+        return[null, staff];
+            
         
-        /*if(staff.password)
-        {
-            continue ;
-        }*/
-        return [null, staff];
     } catch (e) {
         return [e.message, null];
     }
 };
+
+
 
 const getById = async (id) => {
     const options = {};

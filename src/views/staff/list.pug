@@ -9,6 +9,7 @@ block content
         thead
           tr
             th Email
+            th Password
             th Nombre
             th Apellido
             th Rol
@@ -19,7 +20,7 @@ block content
           each s in staff
             tr
               td= s.email
-              //td= s.password
+              td= s.password
               td= s.name
               td= s.lastName
               td= s.rol
