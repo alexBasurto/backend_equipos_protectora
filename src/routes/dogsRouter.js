@@ -21,7 +21,7 @@ router.post("/", isAuthenticated, upload.single('fotoSubir'), (req, res) => {
     dogsViewController.create(req, res);
 });
 
-router.get("/:id/edit", /* isAdmin, */ dogsViewController.updateForm);
+router.get("/:id/edit", isAdmin, dogsViewController.updateForm);
 
 router.post("/:id", isAuthenticated, /* isAdmin, */ (req, res) => {
     dogsViewController.update(req, res);
