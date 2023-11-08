@@ -4,6 +4,7 @@ const getAll = async (req, res) => {
     const errorMessage = req.query.error;
     const q = req.query.q;
     const [error, dogs] = await dogsController.getAll(q);
+    console.log("EEEESSSSS AQUIIIIIIIIII " + req.session.rol);
     res.render("dogs/list", {
         error: error || errorMessage,
         dogs,

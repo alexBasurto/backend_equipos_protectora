@@ -19,7 +19,8 @@ block content
             th Año
             th Comentarios
             th Raza
-            th Acciones
+            if session.rol == 'admin'
+              th Acciones
         tbody
           each dog in dogs
             tr
@@ -35,8 +36,9 @@ block content
               td= dog.yearOfBirth
               td= dog.comments
               td= dog.breed.name
-              td.actionButtons
-                a(href='/dogs/'+dog.idDog+'/edit')
-                  img.actionIcon(src='/images/editIcon.png' alt='Editar')
-                a(href='/dogs/'+dog.idDog+'/delete')
-                  img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
+              if session.rol == 'admin'
+                td.actionButtons
+                  a(href='/dogs/'+dog.idDog+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/dogs/'+dog.idDog+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
