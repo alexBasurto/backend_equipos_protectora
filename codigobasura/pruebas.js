@@ -1,7 +1,5 @@
 import bcrypt from "bcrypt";
 
-const bcrypt = require('bcrypt');
-
 const password = 'admin123'; // La contraseña que deseas hashear
 
 // Genera un salt aleatorio y luego genera el hash

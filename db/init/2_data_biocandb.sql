@@ -95,11 +95,11 @@ LOCK TABLES `tbStaff` WRITE;
 /* admin123 hash $2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i*/
 INSERT INTO tbStaff
 VALUES 
-  (1, 'john.doe@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'John', 'Doe', 'standardUser', '2023-10-30', 1),
-  (2, 'jane.smith@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Jane', 'Smith', 'standardUser', '2023-10-30', 1),
-  (3, 'michael.johnson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Michael', 'Johnson', 'standardUser', '2023-10-30', 1),
-  (4, 'emily.wilson@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Emily', 'Wilson', 'standardUser', '2023-10-30', 1),
-  (5, 'admin@biocan.com', '$2b$10$oN6z7m3od75NptUHxMLyr.VeZ9pFQgl32vrmZ324lN01VycfPoh2i', 'Admin', 'User', 'admin', '2023-10-30', 1);
+  (1, 'john.doe@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'John', 'Doe', 'standardUser', '2023-10-30', 1),
+  (2, 'jane.smith@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Jane', 'Smith', 'standardUser', '2023-10-30', 1),
+  (3, 'michael.johnson@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Michael', 'Johnson', 'standardUser', '2023-10-30', 1),
+  (4, 'emily.wilson@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Emily', 'Wilson', 'standardUser', '2023-10-30', 1),
+  (5, 'admin@biocan.com', '$2b$10$dlVvqHBLDub/713Fjjdwp.ELesJjjOfaT7RHcvYazn7uF8M77iGTC', 'Admin', 'User', 'admin', '2023-10-30', 1);
 /*!40000 ALTER TABLE `tbStaff` ENABLE KEYS */;
 UNLOCK TABLES;
 

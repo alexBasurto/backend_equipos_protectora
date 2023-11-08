@@ -91,6 +91,7 @@ const update = async (
     comments,
     breed
 ) => {
+    console.log("PASO 2 " + id,name,color,size,photo,behavior,year,comments,breed);
     if (id == undefined) {
         const error = "Tienes que especificar un ID válido";
         return [error, null];

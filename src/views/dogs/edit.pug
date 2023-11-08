@@ -4,7 +4,7 @@ block content
     h1 Editar Ficha Perro
     if error 
         h2= error
-    form.formulario(action=`/dogs/${dog.idDog}`, method="post", enctype="multipart/form-data")
+    form.formulario(action=`/dogs/${dog.idDog}`, method="post", enctype='application/x-www-form-urlencoded')
         .form-group
             label(for="name") Nombre:
             input(type="text", name="name", id="name" value=dog.name)

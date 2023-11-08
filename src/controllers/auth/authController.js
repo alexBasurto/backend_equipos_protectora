@@ -1,27 +1,42 @@
+import bcrypt from "bcrypt";
+import {staffModel} from "../../models/staffModel.js";
+
+
 // Controlador para el inicio de sesión.
-const login = (req, res) => {
-    // Obtiene el nombre de usuario y la contraseña del cuerpo de la solicitud.
-    const { username, password } = req.body;
+const login = async(req,res)=>{
+    console.log("REQ BODY " + req.body.email + " " + req.body.password);
+    const {email,password} = req.body;
+    try{
+        const user = await staffModel.findOne({where:{email:email}})
+        console.log(user);
+        if(!user){
+            throw new Error("credenciales incorrectas");
+        }
+        const hash = user.password;
 
-    // Almacena el nombre de usuario en la sesión del usuario.
-    req.session.user = username;
-
-    // Redirige al usuario a la página de inicio después de iniciar sesión.
+        if(await bcrypt.compare(password,hash)){
+            req.session.user = user.idStaff;
+            req.session.rol = user.rol;
+        } else {
+            throw new Error("Contraseña errónea.")
+        }
+    }
+    catch(e){
+        const errorUri = encodeURIComponent("credenciales incorrectas");
+        return res.redirect("/login?error="+errorUri);
+    }
+    
     res.redirect("/");
 }
-
 // Controlador para mostrar el formulario de inicio de sesión.
-const loginForm = (req, res) => {
-    // Renderiza una vista de formulario de inicio de sesión (posiblemente para que el usuario complete).
-    res.render("auth/login");
+const loginForm = (req,res) => {
+    const errorMessage = req.query.error
+    res.render("auth/login",{error:errorMessage});
 }
 
 // Controlador para cerrar sesión.
-const logout = (req, res) => {
-    // Destruye la sesión del usuario (cierra la sesión del usuario actual).
+const logout = (req,res)=>{
     req.session.destroy();
-
-    // Redirige al usuario a la página de inicio de sesión.
     res.redirect("/login");
 }
 

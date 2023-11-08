@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  div(class="candidates-container")
+    
+      table(class="candidates-table")
+        thead
+          tr
+            th Email
+            th Nombre
+            th Apellido
+            th Rol
+            th Fecha de inicio
+            th Estado
+        tbody
+        if staff
+          each s in staff
+            tr
+              td= s.email
+              //td= s.password
+              td= s.name
+              td= s.lastName
+              td= s.rol
+              td= s.hiringDate
+              td= s.status
+              td
+                a(href='/staff/'+s.idStaff+'/edit') Editar
+                |
+                a(href='/staff/'+s.idStaff+'/delete') Eliminar
