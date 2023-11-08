@@ -30,7 +30,9 @@ block content
               td= candidate.validated
               td= candidate.city
               td= candidate.typeOfHousing.TypeOfHousing
-              td
-                a(href='/candidates/'+candidate.idCandidate+'/edit') Editar
-                |
-                a(href='/candidates/'+candidate.idCandidate+'/delete') Eliminar
+              if session.rol == 'admin'
+                td.actionButtons
+                  a(href='/candidates/'+candidate.idCandidate+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/candidates/'+candidate.idCandidate+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
