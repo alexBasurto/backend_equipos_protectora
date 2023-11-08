@@ -3,29 +3,8 @@ extends ../layout
 block content
   if error
     p(class="error", style="color:red;")= error
-  div(class="candidates-container")
-    
-  section(class="filter-form")
-  form.search-form(action="/dogs" method="get")
-    .form-group-search
-      label(for="idDog") ID
-      input(type="text", name="idDog", id="idDog", class="input-field")
-    .form-group-search
-      label(for="name") Nombre
-      input(type="text", name="name", id="name", class="input-field")
-    .form-group-search
-      label(for="size") Tamaño
-      input(type="text", name="size", id="size", class="input-field")
-    .form-group-search
-      label(for="yearOfBirth") Año
-      input(type="text", name="yearOfBirth", id="yearOfBirth", class="input-field")
-    .form-group-search
-      label(for="breed") Raza
-      input(type="text", name="breed", id="breed", class="input-field")
-    .form-group-search
-      button(type="submit", value="search", class="btn-primary") Buscar
-  
-  a(href='/dogs/new', class="new-candidate-button") Nuevo Perro
+  div(class="candidates-container")  
+    a(href='/dogs/new', class="new-candidate-button") Nuevo Perro
 
   section(class="searchResults")
     if dogs
