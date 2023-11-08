@@ -1,5 +1,6 @@
 * {
   margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body{
@@ -35,7 +36,8 @@ section.logo>img {
 }
 
 section.logo>p {
-  font-size: 20px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 30px;
   font-weight: bold;
 }
 
