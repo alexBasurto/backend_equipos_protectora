@@ -13,13 +13,23 @@ const isAuthenticated = (req, res, next) => {
 
 const isAdmin = async (req,res,next) =>{
     if(req.session.user ){
-        const user = await staffModel.findByPk(req.session.user);
-        if(user.rol !== "admin"){
-            res.redirect("/login");
+        try {
+            const user = await staffModel.findByPk(req.session.user);
+
+            if (user && user.rol === "admin") {
+                // El usuario tiene permisos de administrador, permite el acceso.
+                next();
+            } else {
+                // El usuario no es un administrador, redirige a la página de inicio de sesión.
+                res.redirect("/login");
+            }
+        } catch (error) {
+            // Maneja errores de la consulta a la base de datos, si los hay.
+            console.error("Error al buscar al usuario en la base de datos:", error);
+            res.redirect("/error"); // Puedes redirigir a una página de error personalizada.
         }
-        next();
-    }
-    else{
+    } else {
+        // Si no hay sesión de usuario, redirige a la página de inicio de sesión.
         res.redirect("/login");
     }
 }

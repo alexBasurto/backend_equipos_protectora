@@ -21,13 +21,15 @@ router.post("/", isAuthenticated, upload.single('fotoSubir'), (req, res) => {
     dogsViewController.create(req, res);
 });
 
-router.get("/:id/edit", /* isAdmin, */ dogsViewController.updateForm);
+router.get("/:id/edit", isAuthenticated, isAdmin, dogsViewController.updateForm);
 
-router.post("/:id", isAuthenticated, /* isAdmin, */ (req, res) => {
+router.post("/:id", isAuthenticated, isAdmin, (req, res) => {
+    console.log("PASO 0 " + req.params.id);
+    console.log("Datos del formulario:", req.body);
     dogsViewController.update(req, res);
 });
 
-router.get("/:id/delete", isAuthenticated, /* isAdmin, */ (req, res) => {
+router.get("/:id/delete", isAuthenticated, isAdmin, (req, res) => {
     dogsViewController.remove(req, res);
 })
 
