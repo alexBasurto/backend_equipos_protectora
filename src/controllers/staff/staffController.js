@@ -37,6 +37,7 @@ const getById = async (id) => {
     ];
     try {
         const staff = await staffModel.findByPk(id, options);
+        console.log("holaaaaaa",staff)
         return [null, staff];
     } catch (e) {
         return [e.message, null];

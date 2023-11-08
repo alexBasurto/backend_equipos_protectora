@@ -14,7 +14,7 @@ block content
             th(colspan=2) Candidato
             th Fecha de Adopción
             th Comentarios
-            th Acciones
+
         tbody
           each adoption in adoptions
             tr
@@ -35,7 +35,4 @@ block content
                 td
               td= adoption.adopDate
               td= adoption.comments
-              td
-                a(href='/adoptions/'+adoption.idAdoption+'/edit') Editar
-                |
-                a(href='/adoptions/'+adoption.idAdoption+'/delete') Eliminar
+

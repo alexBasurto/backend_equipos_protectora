@@ -418,3 +418,26 @@ h2 {
   color: red;
   font-weight: bold;
 }
+
+.btn-grande {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ff0000; /* Color de fondo del botón (rojo en este caso) */
+  border: 2px solid #ff0000; /* Borde del botón del mismo color que el fondo */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+}
+
+.btn-grande:hover {
+  background-color: #ffffff; /* Cambia el fondo a blanco al pasar el ratón sobre el botón */
+  color: #ff0000; /* Cambia el color del texto a rojo al pasar el ratón sobre el botón */
+}
+.button-container {
+  text-align: center; /* Centra los elementos hijos horizontalmente */
+  margin-bottom: 20px; /* Espaciado inferior para separar el botón del siguiente contenido */
+}
