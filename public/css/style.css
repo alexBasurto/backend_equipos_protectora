@@ -327,3 +327,15 @@ h2 {
 .tarjeta p {
   margin: 5px 0;
 }
+
+/* Estilo para las tarjetas con perros de 6 años o más */
+.mayor-seis-anos {
+  /* background-color: rgba(147, 205, 243, 0.795);  */
+
+  box-shadow: 0 0 10px red;
+}
+.urgente-adoptar {
+
+  color: red;
+  font-weight: bold;
+}
