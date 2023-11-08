@@ -2,15 +2,9 @@
 import { Router } from "express";
 import candidatesRouter from "./candidatesRouter.js";
 import dogsRouter from "./dogsRouter.js";
-<<<<<<< HEAD
 import adoptionsRouter from "./adoptionsRouter.js"
 import staffRouter from "./staffRouter.js"
 import publicDogsRouter from "./publicDogsRouter.js"
-=======
-import adoptionsRouter from "./adoptionsRouter.js";
-import staffRouter from "./staffRouter.js";
-import publicDogsRouter from "./publicDogsRouter.js";
->>>>>>> dev
 import authRouter from "./authRouter.js";
 
 
