@@ -40,4 +40,5 @@ El objetivo del proyecto es, en trabajo colaborativo, poner en práctica las sig
 |------------------------------------------------|
 | [Orientación del Proyecto](./docs/PROYECTO.md) |
 | [Diagrama BBDD](./docs/BASEDATOS.md)           |
+| [Flujos de código](./docs/FLOWS.md)            |
 | [Diario progreso](./docs/DIARIO.md)            |
