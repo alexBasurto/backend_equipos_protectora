@@ -4,29 +4,34 @@ block content
   if error
     p(class="error", style="color:red;")= error
   div(class="candidates-container")
-    
+    if staff
+      a(href='/staff/new', class="new-candidate-button") Nuevo voluntario
       table(class="candidates-table")
         thead
           tr
             th Email
-            th Password
             th Nombre
             th Apellido
             th Rol
             th Fecha de inicio
             th Estado
+            th Id
         tbody
         if staff
           each s in staff
             tr
               td= s.email
-              td= s.password
               td= s.name
               td= s.lastName
               td= s.rol
               td= s.hiringDate
               td= s.status
-              td
-                a(href='/staff/'+s.idStaff+'/edit') Editar
-                |
-                a(href='/staff/'+s.idStaff+'/delete') Eliminar
+              td= s.idStaff
+              td.actionButtons
+                a(href='/staff/'+s.idStaff+'/edit')
+                  img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                a(href='/staff/'+s.idStaff+'/delete')
+                  img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
+
+              
+            

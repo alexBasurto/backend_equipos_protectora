@@ -15,19 +15,17 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
     const id = req.params.id;
     const [error, staff] = await staffController.getById(id);
-    res.render("staff/show", 
+    res.render("staff/edit", 
     { 
         error, 
         staff, 
-        session: req.session 
+        session: req.session
     });
 };
 
 const createForm = async (req, res) => {
     const error = req.query.error;
    
-
-//    const [rolsError, rols] = await staffController.getRols();
 
    if (error) {
         res.redirect("/staff");
@@ -36,6 +34,7 @@ const createForm = async (req, res) => {
 };
 
 const create = async (req, res) => {
+    console.log("AQUI" + req.body.password)
     const { email, 
         password, 
         name, 
@@ -68,7 +67,7 @@ const updateForm = async (req, res) => {
     if (error) {
         res.redirect("/staff");
     }
-    res.render("staff/edit", {
+    res.render(`staff/edit`, {
         error: errorMessage,
         staff,
         //rol,

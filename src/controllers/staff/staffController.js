@@ -1,7 +1,5 @@
 import { staffModel } from "../../models/staffModel.js";
-
 import { adoptionModel } from "../../models/adoptionModel.js";
-
 import { Op } from "sequelize";
 
 
@@ -27,16 +25,9 @@ const getAll = async (q = null) => {
 
 
 const getById = async (id) => {
-    const options = {};
-    options.include = [
-        {
-            model: staffModel,
-            as: "staff",
-            attributes: ["idStaff", "name", "lastName"],
-        },
-    ];
+   
     try {
-        const staff = await staffModel.findByPk(id, options);
+        const staff = await staffModel.findByPk(id);
         return [null, staff];
     } catch (e) {
         return [e.message, null];
@@ -136,17 +127,16 @@ const remove = async (id) => {
             where: { idStaff: staff.idStaff },
         });
         if (checkAdoption > 0) {
-            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este perro.`;
+            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este miembro del staff.`;
             return [error, null];
         }
 
         staff.destroy();
-        return [null, dog];
+        return [null, staff];
     } catch (e) {
         return [e.message, null];
     }
 };
-
 
 export default {
     getAll,
