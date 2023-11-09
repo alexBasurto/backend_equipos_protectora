@@ -18,7 +18,8 @@ block content
             th Validado
             th Ciudad
             th Tipo de Vivienda
-            th Acciones
+            if session.rol == 'admin'
+              th Acciones
         tbody
           each candidate in candidates
             tr
