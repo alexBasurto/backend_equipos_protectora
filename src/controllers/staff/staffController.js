@@ -27,12 +27,7 @@ const getAll = async (q = null) => {
 const getById = async (id) => {
    
     try {
-<<<<<<< HEAD
-        const staff = await staffModel.findByPk(id, options);
-        console.log("holaaaaaa",staff)
-=======
         const staff = await staffModel.findByPk(id);
->>>>>>> olatz
         return [null, staff];
     } catch (e) {
         return [e.message, null];
