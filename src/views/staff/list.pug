@@ -17,7 +17,8 @@ block content
             th Fecha de inicio
             th Estado
             th Id
-            th Acciones
+            if session.rol == 'admin'
+              th Acciones
         tbody
           each s in staff
             tr
@@ -28,11 +29,12 @@ block content
               td= s.hiringDate
               td= s.status
               td= s.idStaff
-              td.actionButtons
-                a(href='/staff/'+s.idStaff+'/edit')
-                  img.actionIcon(src='/images/editIcon.png' alt='Editar')
-                a(href='/staff/'+s.idStaff+'/delete')
-                  img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
+              if session.rol == 'admin'
+                td.actionButtons
+                  a(href='/staff/'+s.idStaff+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/staff/'+s.idStaff+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')
 
-              
+                
             
