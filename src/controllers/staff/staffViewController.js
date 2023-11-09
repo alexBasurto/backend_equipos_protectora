@@ -34,7 +34,6 @@ const createForm = async (req, res) => {
 };
 
 const create = async (req, res) => {
-    console.log("AQUI" + req.body.password)
     const { email, 
         password, 
         name, 
@@ -77,8 +76,8 @@ const updateForm = async (req, res) => {
 
 const update = async (req, res) => {
     const id = req.params.id;
+    
     const { 
-        idStaff,
         email, 
         password, 
         name, 
@@ -86,11 +85,20 @@ const update = async (req, res) => {
         rol, 
         hiringDate, 
         status
-     } =
-        req.body;
+    } =
+    req.body;
     
+    console.log("AQUIIIIIIIIIIIIIIII"+ id, email, 
+    password, 
+    name, 
+    lastName,
+    rol, 
+    hiringDate, 
+    status )
+
         const [error, staff] = await staffController.update(
-        idStaff,
+            
+        id,    
         email,
         password,
         name,

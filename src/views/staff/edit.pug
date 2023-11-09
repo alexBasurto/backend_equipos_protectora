@@ -5,9 +5,8 @@ block content
     h1 Editar Ficha Voluntario
     if error 
         h2= error
-    form.formulario(action=`/staff/${staff.idStaff}`, method="post" enctype='application/x-www-form-urlencoded')
+    form.formulario(action=`/staff/${staff.idStaff}`, method="post", enctype='application/x-www-form-urlencoded')
         .form-group
-            input(type="hidden" name="id" id="id" value=staff.idStaff)
             label(for="email") Email:
             input(type="email", name="email", id="email" value=staff.email)
         .form-group  
@@ -19,13 +18,13 @@ block content
         
         .form-group
             label(for="lastname") Apellido:
-            input(type="text", name="lastname", id="lastname", value=staff.lastName)
+            input(type="text", name="lastName", id="lastName", value=staff.lastName)
         .form-group
             label(for="text") Rol:
             input(type="text", name="rol", id="rol", value=staff.rol)
         .form-group
             label(for="date") Fecha de inicio:
-            input(type="date", name="hiringdate", id="hiringdate", value=staff.hiringDate)
+            input(type="date", name="hiringDate", id="hiringDate", value=staff.hiringDate)
         .form-group
             label(for="status") Estado:
             select(name="status", id="status")
@@ -35,7 +34,6 @@ block content
              else
                 option(value=0, selected="selected")='Desactivado' 
                 option(value=1)='Activado'
-           
                  
         .form-group
             input(type="submit", value="Guardar") 

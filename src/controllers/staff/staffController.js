@@ -99,7 +99,7 @@ const update = async (
         return [error, null];
     }
     try {
-        const staff = await staffModel.findByPk(id);
+        const staff = await staffModel.findByPk(idStaff);
         staff.email = email;
         staff.password = password;
         staff.name = name;

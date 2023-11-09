@@ -4,6 +4,7 @@ block content
   if error
     p(class="error", style="color:red;")= error
   div(class="candidates-container")
+  
     if staff
       a(href='/staff/new', class="new-candidate-button") Nuevo voluntario
       table(class="candidates-table")
@@ -16,6 +17,7 @@ block content
             th Fecha de inicio
             th Estado
             th Id
+            th Acciones
         tbody
         if staff
           each s in staff
