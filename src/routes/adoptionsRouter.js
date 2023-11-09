@@ -1,10 +1,11 @@
 import { Router } from "express";
 import adoptionsViewController from "../controllers/adoptions/adoptionsViewController.js";
+import {isAuthenticated, isAdmin} from "../middlewares/authMiddleware.js";
 
 const router = Router(); 
-router.get("/new", adoptionsViewController.createForm);
+router.get("/new", isAuthenticated, adoptionsViewController.createForm);
 
-router.post("/",(req,res)=>{
+router.post("/", isAuthenticated, (req,res)=>{
     adoptionsViewController.create(req,res);
 });
 
@@ -23,7 +24,7 @@ router.get("/:id",(req,res)=>{
     candidatesViewController.getCandidatesByIdView(req,res);
 }); */
 
-router.get("/",(req,res)=>{
+router.get("/", isAuthenticated, (req,res)=>{
     adoptionsViewController.getAllAdoptionsView(req,res);
 });
 

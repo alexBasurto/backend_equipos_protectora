@@ -5,27 +5,27 @@ import {isAuthenticated, isAdmin} from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", isAuthenticated, (req, res) => {
     staffViewController.getAll(req, res);
 });
 
-router.get("/new", /* isAdmin, */ staffViewController.createForm);
+router.get("/new", isAuthenticated, staffViewController.createForm);
 
-router.get("/:id", (req, res) => {
+router.get("/:id", isAuthenticated, (req, res) => {
     staffViewController.getById(req, res);
 });
 
-router.post("/", /* isAdmin, */ (req, res) => {
+router.post("/", isAuthenticated, (req, res) => {
     staffViewController.create(req, res);
 });
 
-router.get("/:id/edit", /* isAdmin, */ staffViewController.updateForm);
+router.get("/:id/edit", isAuthenticated, isAdmin, staffViewController.updateForm);
 
-router.post("/:id",/* isAdmin, */ (req, res) => {
+router.post("/:id",isAuthenticated, isAdmin, (req, res) => {
     staffViewController.update(req, res);
 });
 
-router.get("/:id/delete", /* isAdmin, */ (req, res) => {
+router.get("/:id/delete", isAuthenticated, isAdmin, (req, res) => {
     staffViewController.remove(req, res);
 })
 

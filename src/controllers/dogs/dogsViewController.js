@@ -103,7 +103,7 @@ const remove = async (req, res) => {
 
     const [deleteError, deletedDog] = await dogsController.remove(id);
     if (deleteError) {
-        const uriError = encodeURIComponent(error);
+        const uriError = encodeURIComponent(deleteError);
         return res.redirect(`/dogs?error=${uriError}`);
     } else {
         // Obtén la ruta del archivo de la foto
