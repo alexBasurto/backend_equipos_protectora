@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    h1 Nuevo miembro
+    if error
+        h2= error
+    form.formulario(action="/staff", method="post", enctype='application/x-www-form-urlencoded') 
+        .form-group
+            label(for="email") Email*
+            input(type="email", name="email", id="email", class="input-field")
+        .form-group
+            label(for="password") Contraseña*
+            input(type="password", name="password", id="password", class="input-field")
+        .form-group
+            label(for="name") Nombre*
+            input(type="text", name="name", id="name", class="input-field")
+        .form-group
+            label(for="lastName") Apellido
+            input(type="text", name="lastName", id="lastName", class="input-field")
+            
+        .form-group
+            label(for="rol") Rol
+            select(name="rol" id="rol" class="input-field")
+                option(value="standardUser" selected)="Usuario standard"
+                option(value="admin")="Administrador"
+        .form-group
+            label(for="hiringDate") Fecha inicio*
+            input(type="date", name="hiringDate", id="hiringDate", class="input-field")
+        .form-group
+            label(for="status") Estado
+            select(name="status", id="status" class="input-field" )
+                option(value=1, selected="selected")= 'Activo'  
+                option(value=0)= 'Desactivado'           
+      
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")

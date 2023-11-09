@@ -14,9 +14,6 @@ const sequelize = new Sequelize(
         define: {
             timestamps: false,
             freezeTableName: true,
-        },
-    },
-    
+        },},  
 );
-
 export default sequelize;

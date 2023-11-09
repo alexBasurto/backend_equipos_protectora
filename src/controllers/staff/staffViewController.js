@@ -15,19 +15,17 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
     const id = req.params.id;
     const [error, staff] = await staffController.getById(id);
-    res.render("staff/show", 
+    res.render("staff/edit", 
     { 
         error, 
         staff, 
-        session: req.session 
+        session: req.session
     });
 };
 
 const createForm = async (req, res) => {
     const error = req.query.error;
    
-
-//    const [rolsError, rols] = await staffController.getRols();
 
    if (error) {
         res.redirect("/staff");
@@ -68,7 +66,7 @@ const updateForm = async (req, res) => {
     if (error) {
         res.redirect("/staff");
     }
-    res.render("staff/edit", {
+    res.render(`staff/edit`, {
         error: errorMessage,
         staff,
         //rol,
@@ -78,8 +76,8 @@ const updateForm = async (req, res) => {
 
 const update = async (req, res) => {
     const id = req.params.id;
+    
     const { 
-        idStaff,
         email, 
         password, 
         name, 
@@ -87,11 +85,20 @@ const update = async (req, res) => {
         rol, 
         hiringDate, 
         status
-     } =
-        req.body;
+    } =
+    req.body;
     
+    console.log("AQUIIIIIIIIIIIIIIII"+ id, email, 
+    password, 
+    name, 
+    lastName,
+    rol, 
+    hiringDate, 
+    status )
+
         const [error, staff] = await staffController.update(
-        idStaff,
+            
+        id,    
         email,
         password,
         name,

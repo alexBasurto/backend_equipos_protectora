@@ -1,7 +1,5 @@
 import { staffModel } from "../../models/staffModel.js";
-
 import { adoptionModel } from "../../models/adoptionModel.js";
-
 import { Op } from "sequelize";
 
 
@@ -15,29 +13,26 @@ const getAll = async (q = null) => {
     }
     try {
         const staff = await staffModel.findAll(options);
+          
+        return[null, staff];
+            
         
-        /*if(staff.password)
-        {
-            continue ;
-        }*/
-        return [null, staff];
     } catch (e) {
         return [e.message, null];
     }
 };
 
+
+
 const getById = async (id) => {
-    const options = {};
-    options.include = [
-        {
-            model: staffModel,
-            as: "staff",
-            attributes: ["idStaff", "name", "lastName"],
-        },
-    ];
+   
     try {
+<<<<<<< HEAD
         const staff = await staffModel.findByPk(id, options);
         console.log("holaaaaaa",staff)
+=======
+        const staff = await staffModel.findByPk(id);
+>>>>>>> olatz
         return [null, staff];
     } catch (e) {
         return [e.message, null];
@@ -109,7 +104,7 @@ const update = async (
         return [error, null];
     }
     try {
-        const staff = await staffModel.findByPk(id);
+        const staff = await staffModel.findByPk(idStaff);
         staff.email = email;
         staff.password = password;
         staff.name = name;
@@ -137,17 +132,16 @@ const remove = async (id) => {
             where: { idStaff: staff.idStaff },
         });
         if (checkAdoption > 0) {
-            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este perro.`;
+            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este miembro del staff.`;
             return [error, null];
         }
 
         staff.destroy();
-        return [null, dog];
+        return [null, staff];
     } catch (e) {
         return [e.message, null];
     }
 };
-
 
 export default {
     getAll,

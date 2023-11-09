@@ -45,14 +45,4 @@ const staffModel = sequelize.define('tbStaff', {
     timestamps: false
 });
 
-/*
-adoptionModel.belongsTo(staffModel, {
-    foreignKey: "idStaff",
-    as: 'staff'
-});
-
-staffModel.hasMany(adoptionModel, { foreignKey: "idStaff" });
-
-*/
-
   export { staffModel } ;

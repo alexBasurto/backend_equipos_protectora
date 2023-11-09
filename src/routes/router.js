@@ -2,9 +2,9 @@
 import { Router } from "express";
 import candidatesRouter from "./candidatesRouter.js";
 import dogsRouter from "./dogsRouter.js";
-import adoptionsRouter from "./adoptionsRouter.js";
-import staffRouter from "./staffRouter.js";
-import publicDogsRouter from "./publicDogsRouter.js";
+import adoptionsRouter from "./adoptionsRouter.js"
+import staffRouter from "./staffRouter.js"
+import publicDogsRouter from "./publicDogsRouter.js"
 import authRouter from "./authRouter.js";
 
 
