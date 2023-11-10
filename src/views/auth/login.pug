@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 Login
+    h1.title Login
     if error
         h2= error
     form.formulario(action="/login", method="post")

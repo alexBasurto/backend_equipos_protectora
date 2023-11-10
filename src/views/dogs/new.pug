@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 Nuevo Perro
+    h1.title Nuevo Perro
     if error
         h2= error
     form.formulario(action="/dogs", method="post", enctype="multipart/form-data") 
