@@ -1,4 +1,5 @@
-import { candidatesModel, typeOfHousingModel } from "../../models/candidatesHouseModel.js"
+import { candidatesModel, typeOfHousingModel } from "../../models/candidatesHouseModel.js";
+import {adoptionModel} from "../../models/adoptionModel.js";
 
 import { Op } from "sequelize"
 
