@@ -2,7 +2,7 @@ extends ../layout
 
 
 block content 
-    h1 Editar Ficha Voluntario
+    h1.title Editar Ficha Voluntario
     if error 
         h2= error
     form.formulario(action=`/staff/${staff.idStaff}`, method="post", enctype='application/x-www-form-urlencoded')

@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 Nuevo miembro
+    h1.title Nuevo miembro
     if error
         h2= error
     form.formulario(action="/staff", method="post", enctype='application/x-www-form-urlencoded') 

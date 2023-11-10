@@ -153,6 +153,13 @@ const removeCandidates = async (idCandidate) => {
             const error = "No se ha encontrado ningún candidato con ese ID.";
             return [error, null];
         }
+        const checkAdoption = await adoptionModel.count({
+            where: { idCandidate: candidate.idCandidate },
+        });
+        if (checkAdoption > 0) {
+            const error = `No se puede borrar. Existe(n) ${checkAdoption} registro(s) en adopciones asociados a este perro.`;
+            return [error, null];
+        }
 
         await candidate.destroy();
 
