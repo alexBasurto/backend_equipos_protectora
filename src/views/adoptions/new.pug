@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+    h1.title Nueva Adopción
+    if error
+        h2= error
+    form.formulario(action="/adoptions", method="post")
+        .form-group
+            label(for="idStaff") ID del Personal
+            input(type="text", name="idStaff", id="idStaff", value=(adoption && adoption.idStaff) || "", class="input-field")
+
+        .form-group
+            label(for="idDog") Perro
+            select(name="idDog", id="idDog", class="input-field")
+                each dog in availableDogs
+                    option(value=dog.idDog)= dog.name
+        .form-group
+            label(for="idCandidate") Candidato
+            select(name="idCandidate", id="idCandidate", class="input-field")
+                each candidate in availableCandidates
+                    option(value=candidate.idCandidate)= candidate.name
+        .form-group
+            label(for="adopDate") Fecha de Adopción
+            input(type="date", name="adopDate", id="adopDate", value=adoption.adopDate, class="input-field")
+        .form-group
+            label(for="comments") Comentarios
+            input(type="text", name="comments", id="comments", value=adoption.comments, class="input-field")
+        .form-group
+            input(type="submit", value="Crear", class="btn-primary")

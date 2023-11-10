@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  div(class="candidates-container")  
+    a(href='/dogs/new', class="new-candidate-button") Nuevo Perro
+
+  section(class="searchResults")
+    if dogs
+      table(class="candidates-table")
+        thead
+          tr
+            th Nombre
+            th Color
+            th Tamaño
+            th Foto
+            th Comportamiento
+            th Año
+            th Comentarios
+            th Raza
+            if session.rol == 'admin'
+              th Acciones
+        tbody
+          each dog in dogs
+            tr
+              td= dog.name
+              td= dog.color
+              td= dog.size
+              td.dogPhotoMiniContainer
+                if dog.photo != null
+                  img(class="dogPhotoMini", src=dog.photo, alt="Foto del perro")
+                else
+                  img(class="dogPhotoMini", src="/images/dogs/nophoto.png", alt="Foto del perro")
+              td= dog.behavior
+              td= dog.yearOfBirth
+              td= dog.comments
+              td= dog.breed.name
+              if session.rol == 'admin'
+                td.actionButtons
+                  a(href='/dogs/'+dog.idDog+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/dogs/'+dog.idDog+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')

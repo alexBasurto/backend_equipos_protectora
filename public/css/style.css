@@ -1,0 +1,443 @@
+* {
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+main {
+  margin: 20px;
+}
+/* nav {
+    background-color: #f5f5f5;
+} */
+
+/* Logo cabezera */
+header {
+  background-color: #00b1af;
+}
+
+section.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+section.logo>img , section.logo>p {
+  display: inline;
+  margin: 0;
+}
+
+section.logo>img {
+  width: 50px;
+}
+
+section.logo>p {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Estilo para la barra de navegación */
+nav {
+  background-color: #ddd;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Estilo para el bloque de contenido */
+.block-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilo para los enlaces */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* estilos sugeridos por jepeto para la tabla de visualizacion de candidatos de pruebas */
+
+/* Estilos para la tabla de candidatos */
+.candidates-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .title {
+    
+    color: #333; 
+    font-size: 28px; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+  .new-candidate-button {
+    background-color: #ddd;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .candidates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .candidates-table th,
+  .candidates-table td {
+    border: 1px solid #888;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .candidates-table th {
+    background-color: #ddd;
+    text-align: center;
+  }
+  
+  .candidates-table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .candidates-table td:last-child a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .candidates-table td:last-child a:hover {
+    text-decoration: underline;
+  }
+
+/* Estilos para fotos en nuevo perro y editar perro */
+  
+img#dogPhoto {
+  height: 250px;
+}
+
+img.dogPhotoMini {
+  height: 50px;
+  margin: 0;
+}
+
+td.dogPhotoMiniContainer {
+  /* padding: 5px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos botones editar y borrar perro */
+td.actionButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+img.actionIcon {
+  width: 30px;
+}
+
+/* Estilos para dispositivos con ancho de pantalla de hasta 768px (tablets y teléfonos) */
+@media (max-width: 768px) {
+    .candidates-table th,
+    .candidates-table td {
+      font-size: 14px;
+    }
+    
+    .candidates-table td:last-child a {
+      font-size: 14px;
+    }
+  }
+  
+  /* Estilos para dispositivos con ancho de pantalla de hasta 480px (teléfonos móviles) */
+  @media (max-width: 480px) {
+    .candidates-table th,
+    .candidates-table td {
+      font-size: 12px;
+    }
+    
+    .candidates-table td:last-child a {
+      font-size: 12px;
+    }
+  }
+
+  /* Estilos para el contenedor del formulario */
+.formulario {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  margin-top: 50px;
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Estilos formularios filtrado */
+.search-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  /* padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  margin-top: 50px; */
+}
+
+.form-group-search {
+  width: 16%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.form-group-search label {
+  height: 20px;
+  font-weight: bold;
+  display: block;
+  width: 50%;
+  font-size: 14px;
+}
+
+.form-group-search input[type="text"] {
+  height: 20px;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Estilos para los botones */
+.btn-primary,
+.btn-secondary {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+.btn-secondary:last-child {
+  margin-right: 0; 
+}
+.btn-primary {
+  background-color: #4caf50;
+  color: white;
+ 
+}
+
+.btn-secondary {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: #45a049;
+}
+
+/* Estilos responsivos para dispositivos con ancho de pantalla de hasta 768px (tablets y teléfonos) */
+@media (max-width: 768px) {
+  .formulario {
+      padding: 10px;
+  }
+
+  .form-group input[type="text"],
+  .form-group select {
+      font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+      padding: 10px 15px;
+  }
+}
+
+/* Estilos responsivos para dispositivos con ancho de pantalla de hasta 480px (teléfonos móviles) */
+@media (max-width: 480px) {
+  .formulario {
+      padding: 5px;
+  }
+
+  .form-group input[type="text"],
+  .form-group select {
+      font-size: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+      padding: 8px 12px;
+  }
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+.info-card {
+  background-color: #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  
+  margin: 0 auto; 
+  max-width: 600px; 
+}
+
+
+
+/* Estilos adicionales para la información de la protectora */
+.info-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el mapa (ajusta según el servicio de mapas que uses) */
+.map-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el contenedor de tarjetas */
+#contenedor-tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+/* Estilos para cada tarjeta */
+.tarjeta {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+/* Estilos para la imagen dentro de la tarjeta */
+.foto {
+  width: 90%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative; /* Agregamos una posición relativa para alinear verticalmente la imagen */
+  margin: 20px auto;
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la imagen llene el contenedor manteniendo su relación de aspecto */
+  object-position: center; /* Centra la imagen tanto vertical como horizontalmente */
+}
+
+/* Estilos para el título de la tarjeta */
+h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los párrafos dentro de la tarjeta */
+.tarjeta p {
+  margin: 5px 0;
+}
+
+/* Estilo para las tarjetas con perros de 6 años o más */
+.mayor-seis-anos {
+  /* background-color: rgba(147, 205, 243, 0.795);  */
+
+  box-shadow: 0 0 10px red;
+}
+.urgente-adoptar {
+
+  color: red;
+  font-weight: bold;
+}
+
+.btn-grande {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ff0000; /* Color de fondo del botón (rojo en este caso) */
+  border: 2px solid #ff0000; /* Borde del botón del mismo color que el fondo */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+}
+
+.btn-grande:hover {
+  background-color: #ffffff; /* Cambia el fondo a blanco al pasar el ratón sobre el botón */
+  color: #ff0000; /* Cambia el color del texto a rojo al pasar el ratón sobre el botón */
+}
+.button-container {
+  text-align: center; /* Centra los elementos hijos horizontalmente */
+  margin-bottom: 20px; /* Espaciado inferior para separar el botón del siguiente contenido */
+}

@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  div(class="candidates-container")
+    
+    if candidates
+      a(href='/candidates/new', class="new-candidate-button") Nuevo Candidato
+      table(class="candidates-table")
+        thead
+          tr
+            th Nombre
+            th Apellido
+            th DNI
+            th Año de Nacimiento
+            th Comentarios
+            th Validado
+            th Ciudad
+            th Tipo de Vivienda
+            if session.rol == 'admin'
+              th Acciones
+        tbody
+          each candidate in candidates
+            tr
+              td= candidate.name
+              td= candidate.lastName
+              td= candidate.dni
+              td= candidate.yearOfBirth
+              td= candidate.comments
+              td= candidate.validated
+              td= candidate.city
+              td= candidate.typeOfHousing.TypeOfHousing
+              if session.rol == 'admin'
+                td.actionButtons
+                  a(href='/candidates/'+candidate.idCandidate+'/edit')
+                    img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                  a(href='/candidates/'+candidate.idCandidate+'/delete')
+                    img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')

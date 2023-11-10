@@ -1,0 +1,41 @@
+extends ../layout
+
+
+block content 
+    h1.title Editar Ficha Voluntario
+    if error 
+        h2= error
+    form.formulario(action=`/staff/${staff.idStaff}`, method="post", enctype='application/x-www-form-urlencoded')
+        .form-group
+            label(for="email") Email:
+            input(type="email", name="email", id="email" value=staff.email)
+        .form-group  
+            label(for="password") Contraseña:
+            input(type="password", name="password", id="password", value=staff.password)
+        .form-group            
+            label(for="name") Nombre:
+            input(type="name", name="name", id="name", value=staff.name)
+        
+        .form-group
+            label(for="lastname") Apellido:
+            input(type="text", name="lastName", id="lastName", value=staff.lastName)
+        .form-group
+            label(for="text") Rol:
+            input(type="text", name="rol", id="rol", value=staff.rol)
+        .form-group
+            label(for="date") Fecha de inicio:
+            input(type="date", name="hiringDate", id="hiringDate", value=staff.hiringDate)
+        .form-group
+            label(for="status") Estado:
+            select(name="status", id="status")
+             if staff.status == 1
+                option(value=1, selected="selected")= 'Activo'  
+                option(value=0)= 'Desactivado'
+             else
+                option(value=0, selected="selected")='Desactivado' 
+                option(value=1)='Activado'
+                 
+        .form-group
+            input(type="submit", value="Guardar") 
+            button
+                a(href='/staff') Cancelar

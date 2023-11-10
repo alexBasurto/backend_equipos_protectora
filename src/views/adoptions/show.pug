@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  if error
+    p(class="error", style="color:red;")= error
+  div(class="candidates-container")
+    if adoptions
+      a(href='/adoptions/new', class="new-candidate-button") Nueva Adopción
+      table(class="candidates-table")
+        thead
+          tr
+            th(colspan=2) Voluntario
+            th(colspan=2) Perro
+            th(colspan=2) Candidato
+            th Fecha de Adopción
+            th Comentarios
+
+        tbody
+          each adoption in adoptions
+            tr
+              td= adoption.idStaff
+              if adoption.staff
+                td= adoption.staff.name
+              else
+                td
+              td= adoption.idDog
+              if adoption.dogs
+                td= adoption.dogs.name
+              else
+                td
+              td= adoption.idCandidate
+              if adoption.candidates
+                td= adoption.candidates.name + " " + adoption.candidates.lastName
+              else
+                td
+              td= adoption.adopDate
+              td= adoption.comments
+

@@ -1,0 +1,31 @@
+html 
+    head 
+        title BIOCAN
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="shortcut icon" href="/images/iconBiocan.png" type="image/x-icon")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital@0;1&display=swap" rel="stylesheet")
+
+    body
+        header
+            section.logo
+                img(src="/images/iconBiocan.png")
+                p BIOCAN
+
+            nav 
+                a(href="/") Home 
+                a(href="/dogs") Perros
+                a(href="/candidates") Candidatos
+                a(href="/adoptions") Adopciones
+                a(href="/staff") Voluntarios
+                a(href="/login") Login
+                a(href="/logout") Logout
+
+        main
+            block content
+
+            script(type="module", src="/js/layout.js")  
+            block script
